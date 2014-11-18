@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Analytics</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/inputs.js"></script>
+	<script src="js/flot.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li><a href="dash.html"><span class="nav-icon icon-home"></span>Dash</a></li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li class="active"><span class="nav-icon icon-analytics-piechart"></span>Analytics</li>
+                <li>
+                    <a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content" class="anlt-page">
+
+            <div id="lines-cont" class="box g8 anlt-row1"><div id="lines" class="chart"></div></div>
+
+            <div id="bars-cont" class="box g8 anlt-row1"><div id="bars" class="chart"></div></div>
+
+            <div id="pie-cont" class="box g6 anlt-row2"><div id="pie" class="chart"></div></div>
+
+            <div class="box g3 anlt-row3 flot-donut">
+                <div id="donut" class="chart"></div>
+                <div class="donut-ov anlt-donut"><div class="donut-ov-inner"></div></div>
+            </div>
+
+            <div id="waves-cont" class="box g7 anlt-row3"><div id="waves" class="chart"></div></div>
+            <div id="bars-cont2" class="box g10 anlt-row3"><div id="bars2" class="chart"></div></div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+            <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p class="al-c">No notifications or alerts to display</p>
+                </div>
+            </div>
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		
+	});
+    
+    // CHART PLOTTING
+
+    var d1 = [[0,10], [2,7], [4,10], [6,16], [8,19], [10,23], [12,30], [14,35], [16,40], [18,46], [20,54]];
+        d2 = [[4,0], [8,7], [10,12], [14,14], [16,18], [18,16], [20,20]];
+    $.plot($("#lines"), [ { data: d1, color: "#f0a602" }, { data: d2, color: "#71a100" } ], {
+        series: {
+            lines: { show: true, fill: true },
+            points: { show: true },
+            resize: false
+        },
+        xaxis: { ticks: false },
+        yaxis: { ticks: false },
+        grid: { borderWidth: 0, hoverable: true }
+    });
+
+    var d3 = [[0,20],[4,16],[8,12],[12,12],[16,16],[20,20]];
+        d4 = [[2,18],[6,14],[10,10],[14,14],[18,18]];
+    $.plot($("#bars"), [ { data: d3, color: "#1d73cf" }, { data: d4, color: "#94a100" } ], {
+        series: { bars: { show: true } },
+        grid: { borderWidth: 0, hoverable: true }
+    });
+
+    var d5 = [
+        { label: "Green", data: 25, color: "#527500"},
+        { label: "Orange", data: 37.5, color: "#d49100"},
+        { label: "Red", data: 37.5, color: "#B02A15"}
+    ];
+    $.plot($("#pie"), d5, { series: { pie: { show: true } } });
+
+    var d6 = [{ label: "Donut", data: 75, color: "#f0a602"}];
+    $.plot($("#donut"), d6, { series: { pie: { show: true, innerRadius: 0.6 } } });
+
+    var d7 = [];
+        d8 = [];
+    for (var i = 0; i < 14.2; i += 0.5) { d7.push([i, Math.sin(i)]); d8.push([i, Math.cos(i)]); };
+    $.plot($("#waves"), [ { data: d7, color: "#f0a602" }, { data: d8, color: "#71a100" } ], {
+        series: { lines: { show: true }, points: { show: true }, resize: false },
+        xaxis: { min: 0, max: 14.1 },
+        yaxis: { min: -1.1, max: 1.1, tickDecimals: false },
+        grid: { color: '#999', borderWidth: 0, labelMargin: 10, hoverable: true }
+    });
+
+    var d9 = [[0,2],[2,4],[4,6],[6,8],[8,10],[10,12],[12,14],[14,16],[16,18],[18,20],[20,22]];
+        d10 = [[0,0],[4,3],[7,4],[11,11],[16,10],[21,18]];
+    $.plot($("#bars2"),
+        [ { data: d10, color: "#f0a602", lines: { show: true, fill: true } }, { data: d9, color: "#71a100", bars: { show: true } } ],
+        { xaxis: { ticks: false }, yaxis: { ticks: false }, grid: { borderWidth: 0 }
+    });
+
+    </script>
+</body>
+</html>

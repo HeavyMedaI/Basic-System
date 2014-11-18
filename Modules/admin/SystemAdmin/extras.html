@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Extras</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="res/elfinder/elfinder.css">
+    <link rel="stylesheet" href="res/fullcalendar/fullcalendar.css" />
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/inputs.js"></script>
+    <script src="js/datatables.js"></script>
+	<script src="res/elfinder/elfinder.js"></script>
+    <script src="res/fullcalendar/fullcalendar.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li><a href="dash.html"><span class="nav-icon icon-home"></span>Dash</a></li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li class="active"><span class="nav-icon icon-addtolist"></span>Extras
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content">
+
+            <div id="toastr-btns" class="box g16 coll coll-only pad-m">
+                <button id="toastr-sc" class="green">Success growl (top-right)</button>
+                <button id="toastr-er" class="red">Error growl (top-left)</button>
+                <button id="toastr-if" class="blue">Info growl (bottom-right)</button>
+                <button id="toastr-wr" class="orange">Warning growl (bottom-left)</button>
+                <button id="toastr-tf">Full growl (top)</button>
+                <button id="toastr-bf">Full growl (bottom)</button>
+            </div>
+
+            <div class="box g16">
+                <div class="header">Typography</div>
+                <div id="typography" class="content pad-full">
+                    <h1 class="mg-btm">Heading 1</h1>
+                    <h2 class="mg-btm">Heading 2</h2>
+                    <h3 class="mg-btm">Heading 3</h3>
+                    <h4 class="mg-btm">Heading 4</h4>
+                    <h5 class="mg-btm">Heading 5</h5>
+                    <h6>Heading 6</h6>
+
+                    <hr>
+
+                    <span>Paragraph with huge font size</span>
+                    <p class="txt-xxl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with extra large font size</span>
+                    <p class="txt-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with large font size</span>
+                    <p class="txt-l">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with medium font size</span>
+                    <p class="txt-m">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with normal font size</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with small font size</span>
+                    <p class="txt-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p><hr>
+
+                    <span>Paragraph with tiny font size</span>
+                    <p class="txt-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box g16">
+                <h2 class="header">Data table</h2>
+                <div class="content no-pad">
+                    <table class="display table" id="example">
+                      <thead>
+                        <tr>
+                          <th>Rendering engine</th>
+                          <th>Browser</th>
+                          <th>Platform(s)</th>
+                          <th class="center">Engine version</th>
+                          <th class="center">CSS grade</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="gradeX">
+                          <td>Trident</td>
+                          <td>Internet Explorer 4.0</td>
+                          <td>Win 95+</td>
+                          <td class="center"> 4</td>
+                          <td class="center">X</td>
+                        </tr>
+                        <tr class="gradeC">
+                          <td>Trident</td>
+                          <td>Internet Explorer 5.0</td>
+                          <td>Win 95+</td>
+                          <td class="center">5</td>
+                          <td class="center">C</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Trident</td>
+                          <td>Internet Explorer 5.5</td>
+                          <td>Win 95+</td>
+                          <td class="center">5.5</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Trident</td>
+                          <td>Internet Explorer 6</td>
+                          <td>Win 98+</td>
+                          <td class="center">6</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Trident</td>
+                          <td>Internet Explorer 7</td>
+                          <td>Win XP SP2+</td>
+                          <td class="center">7</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Trident</td>
+                          <td>AOL browser (AOL desktop)</td>
+                          <td>Win XP</td>
+                          <td class="center">6</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Gecko</td>
+                          <td>Firefox 1.0</td>
+                          <td>Win 98+ / OSX.2+</td>
+                          <td class="center">1.7</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Gecko</td>
+                          <td>Firefox 1.5</td>
+                          <td>Win 98+ / OSX.2+</td>
+                          <td class="center">1.8</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Gecko</td>
+                          <td>Firefox 2.0</td>
+                          <td>Win 98+ / OSX.2+</td>
+                          <td class="center">1.8</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Gecko</td>
+                          <td>Firefox 3.0</td>
+                          <td>Win 2k+ / OSX.3+</td>
+                          <td class="center">1.9</td>
+                          <td class="center">A</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td>Gecko</td>
+                          <td>Firefox 3.0</td>
+                          <td>Win 2k+ / OSX.3+</td>
+                          <td class="center">1.9</td>
+                          <td class="center">A</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="filemgr-box" class="box g16">
+                <div id="filemgr"></div>
+            </div>
+
+            <div class="box g16 ov-no">
+                <h2 class="header">Calendar</h2>
+                <div id="fullcal" class="content no-pad"></div>
+            </div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+            <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p class="al-c">No notifications or alerts to display</p>
+                </div>
+            </div>
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		if ($(document).outerWidth() > 680) $('#filemgr').elfinder({ url : 'res/elfinder/connector.php', resizable: false }).elfinder('instance');
+	});
+
+    $.fn.clearGrowl = function() {
+        toastr.clear();
+        $('body').children('#toast-container').fadeOut('100').remove();
+    };
+    $('#toastr-btns button').click( function() {
+        $.fn.clearGrowl();
+    });
+    $('#toastr-sc').click( function() {
+        toastr.options.positionClass = 'toast-top-right';
+        toastr.success('Success has been successfully achieved.');
+    });
+    $('#toastr-er').click( function() {
+        toastr.options.positionClass = 'toast-top-left';
+        toastr.error('An error occurred while trying to display an error.');
+    });
+    $('#toastr-if').click( function() {
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.info("I'm here to drop some knowledge.");
+    });
+    $('#toastr-wr').click( function() {
+        toastr.options.positionClass = 'toast-bottom-left';
+        toastr.warning('You are not allowed to look at this warning', 'Warning!');
+    });
+    $('#toastr-tf').click( function() {
+        toastr.options.positionClass = 'toast-top-full';
+        toastr.info('Click some buttons', 'Achievement completed');
+    });
+    $('#toastr-bf').click( function() {
+        toastr.options.positionClass = 'toast-bottom-full';
+        toastr.success('You have successfully deleted System32', 'Congrats!');
+    });
+
+    $('#example').dataTable({
+        "sPaginationType": "full_numbers", "aLengthMenu": [5, 10, 25], "iDisplayLength": 5,
+        "fnDrawCallback": function() {
+            $('select').makeSelect();
+            $.fn.selectfn();
+        }
+    });
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    $('#fullcal').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        editable: true,
+        events: [
+          {
+            title: 'All Day Event',
+            start: new Date(y, m, 1)
+          },
+          {
+            title: 'Long Event',
+            start: new Date(y, m, d-5),
+            end: new Date(y, m, d-2)
+          },
+          {
+            id: 999,
+            title: 'Repeating Event',
+            start: new Date(y, m, d-3, 16, 0),
+            allDay: false
+          },
+          {
+            id: 999,
+            title: 'Repeating Event',
+            start: new Date(y, m, d+4, 16, 0),
+            allDay: false
+          },
+          {
+            title: 'Meeting',
+            start: new Date(y, m, d, 10, 30),
+            allDay: false
+          },
+          {
+            title: 'Lunch',
+            start: new Date(y, m, d, 12, 0),
+            end: new Date(y, m, d, 14, 0),
+            allDay: false
+          },
+          {
+            title: 'Birthday Party',
+            start: new Date(y, m, d+1, 19, 0),
+            end: new Date(y, m, d+1, 22, 30),
+            allDay: false
+          },
+          {
+            title: 'Click for Google',
+            start: new Date(y, m, 28),
+            end: new Date(y, m, 29),
+            url: 'http://google.com/'
+          }
+        ]
+    });
+    
+    </script>
+</body>
+</html>

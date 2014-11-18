@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grid</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/inputs.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li><a href="dash.html"><span class="nav-icon icon-home"></span>Dash</a></li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li><a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li class="active"><span class="nav-icon icon-th"></span>Grid</li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content">
+
+            <div id="grid-warning" class="notif orange g16">Small screen size, box grid sizes are enlarged.</div>
+
+            <div id="grid-cont" class="full">
+                <div class="box g1"><span>.g1</span></div>
+                <div class="box g15"><span>.g15</span></div>
+
+                <div class="box g2"><span>.g2</span></div>
+                <div class="box g14"><span>.g14</span></div>
+
+                <div class="box g3"><span>.g3</span></div>
+                <div class="box g13"><span>.g13</span></div>
+
+                <div class="box g4"><span>.g4</span></div>
+                <div class="box g12"><span>.g12</span></div>
+
+                <div class="box g5"><span>.g5</span></div>
+                <div class="box g11"><span>.g11</span></div>
+
+                <div class="box g6"><span>.g6</span></div>
+                <div class="box g10"><span>.g10</span></div>
+
+                <div class="box g7"><span>.g7</span></div>
+                <div class="box g9"><span>.g9</span></div>
+
+                <div class="box g8"><span>.g8</span></div>
+                <div class="box g8"><span>.g8</span></div>
+
+                <div class="box g16"><span>.g16</span></div>
+            </div>
+
+            <div id="grid-box" class="box g16">
+                <div class="header">Grid inside box</div>
+                <div id="grid-box-cont" class="content gcont">
+                    <div class="g1"><span>.g1</span></div>
+                    <div class="g15"><span>.g15</span></div>
+
+                    <div class="g2"><span>.g2</span></div>
+                    <div class="g14"><span>.g14</span></div>
+
+                    <div class="g3"><span>.g3</span></div>
+                    <div class="g13"><span>.g13</span></div>
+
+                    <div class="g4"><span>.g4</span></div>
+                    <div class="g12"><span>.g12</span></div>
+
+                    <div class="g5"><span>.g5</span></div>
+                    <div class="g11"><span>.g11</span></div>
+
+                    <div class="g6"><span>.g6</span></div>
+                    <div class="g10"><span>.g10</span></div>
+
+                    <div class="g7"><span>.g7</span></div>
+                    <div class="g9"><span>.g9</span></div>
+
+                    <div class="g8"><span>.g8</span></div>
+                    <div class="g8"><span>.g8</span></div>
+
+                    <div class="g16 mg-btm"><span>.g16</span></div>
+                </div>
+            </div>
+
+            <div id="nested-grid" class="box g16 gcont">
+                <div class="g4">
+                    <div class="g8"><span>Nested</span></div>
+                    <div class="g8"><span>.g8</span></div>
+                    <div class="g4"><span>.g4</span></div>
+                    <div class="g12"><span>.g12</span></div>
+                </div>
+                <div class="g5">
+                    <div class="g4"><span>.g4</span></div>
+                    <div class="g9"><span>.g9</span></div>
+                    <div class="g3"><span>.g3</span></div>
+                    <div class="g16"><span>Gridception!</span></div>
+                </div>
+                <div class="g7">
+                    <div class="g7"><span>.g7</span></div>
+                    <div class="g3"><span>.g3</span></div>
+                    <div class="g6"><span>.g6</span></div>
+                    <div class="g12"><span>.g12</span></div>
+                    <div class="g4"><span>.g4</span></div>
+                </div>
+            </div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+            <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p class="al-c">No notifications or alerts to display</p>
+                </div>
+            </div>
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		$('#grid-cont .box, #grid-box-cont div').each( function() {
+            var width = $(this).outerWidth();
+
+            if (width < 90) {
+                $(this).addClass('ttip').attr('data-ttip', ''+width+'px').attr('data-ttip-opt','bottom').tooltip();
+            } else $(this).append('<span>('+width+' px)</span>');
+        });
+	});
+    
+    </script>
+</body>
+</html>

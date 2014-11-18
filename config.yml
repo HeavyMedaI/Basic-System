@@ -1,0 +1,17 @@
+system:
+  public_key: "98e682cc5aa8d02f432821fed030c201"
+config:
+  status: "on"
+  private: true
+  project_name: "Akasya Web"
+  default_app: "villa"
+  administrator:
+    company: "Akasya Web"
+    name: "Musa ATALAY"
+    phone: "+905331357712"
+    email: "musaatalay.mobile@gmail.com"
+    website: "www.akasyabilisim.com.tr"
+    address:  795 Folsom Ave, Suite 600<br />San Francisco, CA 94107
+    facebook: musa.atalay.127
+    twitter: physicoos
+    linkedin: musa-atalay/79/3b9/514/

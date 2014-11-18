@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inputs</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/inputs.js"></script>
+    <script src="res/tinymce/tinymce.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li><a href="dash.html"><span class="nav-icon icon-home"></span>Dash</a></li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li class="active"><span class="nav-icon icon-dotlist"></span>Inputs</li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li>
+                    <a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content" class="inp-page">
+
+            <div class="box inp-btns pad-l g16">
+                <button class="gray">Gray button</button>
+                <button class="mini">Minimal button</button>
+                <button>Default button</button>
+                <button class="black">Black button</button>
+                <button class="green">Green button</button>
+                <button class="submit">Submit button</button>
+                <button class="blue">Blue button</button>
+                <button class="orange">Orange button</button>
+                <button class="red">Red button</button>
+                <button class="purple">Purple button</button>
+            </div>
+
+            <div class="box inp-btns pad-l g7">
+                <button class="blue toggle">Toggle button</button>
+                <div class="buttons btn-radio">
+                    <button class="pressed"><span class="icon icon-man-male"></span>Male</button>
+                    <button><span class="icon icon-woman-female"></span>Female</button>
+                </div>
+                <button class="glow">Glowing button</button>
+            </div>
+
+            <div class="box inp-btns pad-l g9">
+                <button class="ttip" data-ttip-opt="left" title="To the window!">Left Tooltip</button>
+                <button class="ttip" data-ttip-opt="right" title="To the wall!">Right Tooltip</button>
+                <button class="ttip" data-ttip-opt="dark" title="Uhhh... Hello?">Top Tooltip (dark)</button>
+                <button class="ttip" data-ttip-opt="bottom" title="Guys? It's cold down here">Bottom Tooltip</button>
+            </div>
+
+            <div id="inp-form-box" class="box g7 inp-row1">
+                <div class="header">Sample form <span class="box-desc">with validation</span></div>
+                <div class="content gcont no-pad-btm">
+                    <form id="sample-form">
+                        <div class="g3 inp-cont no-pad">
+                            <select class="required inset">
+                                <option selected disabled>Prefix</option>
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                            </select>
+                        </div>
+                        <input type="text" class="required g5" placeholder="First Name">
+                        <input type="text" class="required g5" placeholder="Last Name">
+                        <div class="g3">
+                            <input id="age-inp" class="spinner required number inset" placeholder="Age">
+                        </div>
+
+                        <input type="text" class="required email g6" placeholder="E-mail">
+                        <input type="password" class="required match g5" data-match="password" placeholder="Password">
+                        <input type="password" class="required match g5" data-match="password" placeholder="Password again">
+
+                        <input type="text" class="ver-code g4" value="EDB48BO0" disabled>
+                        <input type="text" class="required g4" data-min="8" placeholder="Verification">
+                        <br class="clear">
+
+                        <div class="g4 inp-cont no-pad">
+                            <div class="drop drop-u select g4">
+                                <span class="opt-sel">Card Type</span>
+                                <ul>
+                                  <li>Visa</li>
+                                  <li>Mastercard</li>
+                                  <li>Amex</li>
+                                </ul>
+                                <span class="arrow">'</span>
+                            </div>
+                        </div>
+                        <input type="text" id="card-num" class="cardnum g7" placeholder="Card Number">
+                        <input type="text" class="g2" placeholder="CVV">
+                        <input type="text" id="exp-inp" class="g3" placeholder="Expiry Date">
+
+                        <div class="cont g13">
+                            <input type="checkbox" class="checkbox required big flt-l ig3">
+                            <label class="lh-xxl g13">By checking this box, I am signing a blank check.</label>
+                        </div>
+                        <button type="submit" class="green flt-r g3">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="wizard" class="box nav-box wizard g9 inp-row1">
+                <ul class="nav">
+                    <li data-nav="#eula" class="sel">EULA <span class="arrow">(</span></li>
+                    <li data-nav="#inst">Install <span class="arrow">(</span></li>
+                    <li data-nav="#overview">Overview</li>
+                </ul>
+                <div id="wizard-body" class="nav-cont vt">
+                    <div id="eula" class="nav-item show pad">
+                        <h3>End User License Agreement</h3><hr>
+                        <p>By reading this binding legal document, you are automatically forfeiting all your human rights, and agree to give us full ownership/custody of all your belongings/relatives, as well as memories, emotions, organs and soul (if applicable).
+                        <br><br>
+                        EvilCorp would like to remind you that all of our contracts are airtight, so any attempt to sue us is futile, and punishable to the fullest extent of EvilCorp's torture laws. You are strongly advised to silently accept your faith, and not put up any fight.
+                        <br><br>
+                        Thank you for choosing EvilCorp over our competitors! By helping us create a monopoly, you are helping us give you lower prices!
+                        </p><br>
+                        <div class="nav-act">
+                            <div class="buttons btn-m">
+                               <button class="next">I agree</button>
+                               <button class="next">I agree</button> 
+                            </div>
+                        </div><br>
+                    </div>
+
+                    <div id="inst" class="nav-item pad-m">
+                        <strong>Also install our sponsor's crap!</strong><hr>
+                        <p>
+                            Install Crapsoft's startup app, a must-have on any system!<br><br>
+                            Crapsoft has been tirelessly searching for ways to take up as much RAM memory as possible. And now, with our latest app, we have done just that.<br><br>
+                            Our app is actually completely useless, and will bring the user no benefit whatsoever.<br>It does however run on startup, and takes up precious system resources.<br>Hell, it might even be recording everything you do on your PC, steal your data and private info, you have no way of knowing.
+                        </p><br>
+                        <div class="nav-act">
+                            <label class="txt-s">Oh, look at that, we forgot to include the checkbox, so you can only click next.</label><button class="green next flt-r">Next</button>
+                        </div><br>
+                    </div>
+
+                    <div id="overview" class="nav-item pad-m">
+                        <h5>Overview</h5><hr>
+                        <p>Review the programs to be installed and the location. If everything is OK, click <span class="txt-blue">Install</span> to proceed.</p><br>
+                        <ul class="list">
+                            <li><span class="icon icon-ok txt-green"></span>EvilCorp Evil Suite Professional</li>
+                            <li><span class="icon icon-ok txt-green"></span>Crapsoft Startup App</li>
+                            <li>Install in: <input type="text" value="%root%/prog/Evilsoft" readonly></li>
+                        </ul>
+                        <div class="nav-act btn-m">
+                            <button class="mini prev">Back</button>
+                            <button id="wiz-inst" class="submit wide flt-r mod-tg" data-modal="#wiz-mod">Install</button>
+                        </div>
+                        <div class="modal-ov">
+                            <div id="wiz-mod" class="box modal mini">
+                                <div class="mod-body pad-m bdrad-top">
+                                    <p id="wiz-prog-msg"><span class="icon icon-loadingflowcw spinning"></span>The programs are being installed, please be patient...</p>
+                                    <div class="prog-bar"><span>0%</span><div id="wiz-prog-ind" style="width: 0" class="green grad2"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box inp-btns pad-l g16">
+                <div class="drop">
+                    <button>Dropdown</button>
+                    <button class="arrow">&amp;</button>
+                    <ul>
+                        <li>Say, how's the dropdown business?</li>
+                        <li>Oh, it has its ups and downs.</li>
+                        <li class="sel">*Ba Dum Tss*</li>
+                    </ul>
+                </div>
+                <div class="drop al-r single">
+                    <button class="green arrow-l">Single button<span class="arrow">&amp;</span></button>
+                    <ul>
+                        <li>I'm also aligned right</li>
+                        <li>Can you see the possibilities!?</li>
+                    </ul>
+                </div>
+                <div class="drop drop-u single">
+                    <button class="blue">Dropup<span class="arrow">'</span></button>
+                    <ul>
+                        <li>I am a gracious, soaring eagle!</li>
+                        <li>I should get out of here, though.</li>
+                        <li>I think this is Yakuza turf.</li>
+                        <li>Yikes...</li>
+                    </ul>
+                </div>
+                <div class="drop drop-l drop-u arrow-l">
+                    <button class="gray">Drop...Left ?</button>
+                    <button class="gray arrow">%</button>
+                    <ul>
+                        <li>And up too!</li>
+                        <li>But I'm shorter than the blue guy.</li>
+                    </ul>
+                </div>
+                <div class="drop drop-r">
+                    <button class="purple">Dropright</button>
+                    <button class="purple arrow">(</button>
+                    <ul>
+                        <li>I need to find better names for these</li>
+                        <li>But this one's funny.</li>
+                        <li>Try saying it very fast.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box g8">
+                <h2 class="header">Input types</h2>
+                <div class="content rows-pad-m form big-label label-pad-m">
+                    <div class="row inp-cont">
+                        <label>Basic Text Input</label>
+                        <input type="text">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Basic Password Input</label>
+                        <input type="password">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Placeholder</label>
+                        <input type="text" placeholder="Firefox treats me badly...">
+                    </div>
+                    <div class="row inp-cont">                    
+                        <label>Preset Value</label>
+                        <input type="text" value="Like a placeholder, but harder to get rid of.">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Numbers only</label>
+                        <input type="text" class="number" placeholder="No letters allowed!">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Error</label>
+                        <input type="text" class="error" placeholder="There's an error up in here">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Error with tip</label>
+                        <div class="inp full">
+	                        <input type="text" class="error" placeholder="The error is explained here">
+	                        <div class="input-error icon-remove" style="top: 0; right: 5px; width: 136px;"><p>This field is required</p></div>
+	                    </div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Text Area</label>
+                        <textarea style="height: 60px; resize: vertical;">Look at all this space! You could write novels in here!</textarea>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Read-only</label>
+                        <input type="text" readonly value="Look with your eyes, not your hands.">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Disabled</label>
+                        <input type="text" disabled value="You can't touch this.">
+                    </div>
+                    <div class="row inp-cont">                    
+                        <label>Inset</label>
+                        <input type="text" class="inset" placeholder="I've been put in the ground!">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>With clear button</label>
+                        <div class="inp">
+                            <input type="text" value="See the button on the right? Please don't click it." placeholder="Ahhhhh...Why?">
+                            <button class="gray delete ttip" data-ttip-opt="left dark" data-ttip="Clear input"><span class="icon icon-remove"></span></button>
+                        </div>
+                    </div>
+                    <div class="row inp-cont">                    
+                        <label>File select</label>
+                        <div class="file-sel inp">
+                            <input type="file" class="file">
+                            <span class="icon inp-icon icon-uploadalt"></span>
+                        </div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Spinner</label>
+                        <input class="spinner number" placeholder="Round and round we go">
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Big button spinner</label>
+                        <input id="decimal" class="spinner number big" placeholder="And also decimals!">
+                    </div>
+                </div>
+            </div>
+
+            <div id="other-inp" class="box g8">
+                <div class="header">Other Inputs</div>
+                <div id="misc-inputs" class="content rows-pad-m form big-label label-pad-m">
+                    <div class="row inp-cont radios">
+                        <label>Radios</label>
+                        <div class="ig4"><input type="radio" class="radio"></div>
+                        <div class="ig4"><input type="radio" class="radio" checked></div>
+                        <div class="ig4"><input type="radio" class="radio" disabled></div>
+                        <div class="ig4"><input type="radio" class="radio" disabled checked></div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Checkboxes</label>
+                        <div class="ig4"><input type="checkbox" class="checkbox"></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox" checked></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox" disabled></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox" disabled checked></div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Big Checkboxes</label>
+                        <div class="ig4"><input type="checkbox" class="checkbox big"></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox big" checked></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox big" disabled></div>
+                        <div class="ig4"><input type="checkbox" class="checkbox big" disabled checked></div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Select</label>
+                        <select class="has-delete has-search">
+                            <option selected disabled>Select an option</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Multiple Select</label>
+                        <select multiple class="has-delete">
+                            <option selected disabled>Select one or more options</option>
+                            <optgroup label="Option Group 1">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </optgroup>
+                            <optgroup label="Option Group 2">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Disabled Select</label>
+                        <select disabled>
+                            <option selected>I want to change, but can't</option>
+                        </select>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Datepicker</label>
+                        <div class="inp">
+                            <input type="text" id="datepicker" placeholder="Pick a date...">
+                            <span class="icon inp-icon icon-calendarthree"></span>
+                        </div>
+                    </div>
+                    <div class="row inp-cont">
+                        <label>Colorpicker</label>
+                        <input class="colorpicker" placeholder="Pick a color...">
+                    </div>
+                </div>
+            </div>
+
+            <div id="text-editor" class="box g8 inp-row2">
+                <div class="header">WYSIWYG Editor</div>
+                <div class="content">
+                    <textarea id="wysiwyg">
+                        The quick brown wizard jumps over the toxic brewing dog.<br><br>
+                        The web developer can't think of any content to fill this box.<br><br><br>
+                        Text align left
+                        <p style="text-align: center;">Text align center</p>
+                        <p style="text-align: right;">Text align right</p>
+                        <strong>Bold text</strong><br><br>
+                        <span style="font-style: italic;">Italic Text</span><br><br>
+                        <span style="text-decoration: underline;">Underlined text</span><br><br>
+                        <span style="text-decoration: line-through;">Strikethrough text</span>
+                    </textarea>
+                </div>
+            </div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+            <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p class="al-c">No notifications or alerts to display</p>
+                </div>
+            </div>
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+	});
+    
+    $('#age-inp').spinner({ min: 16, max: 99 });
+    $('#sample-form').validate();
+
+    $('#wiz-inst').click( function() {
+        var par = $(this).parents('#overview');
+            pbar = par.find('#wiz-prog-ind');
+            pbarInd = pbar.siblings('span');
+            modMsg = par.find('#wiz-prog-msg');
+        setTimeout( function() { pbar.css('width','10%'); pbarInd.text('10%') }, 400);
+        setTimeout( function() { pbar.css('width','33%'); pbarInd.text('33%') }, 2000);
+        setTimeout( function() { pbar.css('width','60%'); pbarInd.text('60%') }, 4000);
+        setTimeout( function() { pbar.css('width','82%'); pbarInd.text('82%') }, 7000);
+        setTimeout( function() { pbar.css('width','100%'); pbarInd.text('100%');
+            modMsg.html('<span class="icon icon-ok txt-green"></span>All done! Installation completed successfully.') }, 12000);
+    });
+
+    $('#decimal').spinner({ step: 0.1101001101010011, numberFormat: "n" });
+    $('#datepicker').datepicker();
+    tinymce.init({
+        selector: "#wysiwyg",
+        plugins: [
+            "autolink lists link image charmap print preview anchor",
+            "searchreplace code",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image"
+    });
+
+    </script>
+</body>
+</html>

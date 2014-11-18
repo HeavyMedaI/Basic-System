@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>UI Elements</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/inputs.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li><a href="dash.html"><span class="nav-icon icon-home"></span>Dash</a></li>
+                <li class="active"><span class="nav-icon icon-subtractshape"></span>UI Elements</li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li>
+                    <a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content" class="ui-page">
+
+            <div id="ui-bar" class="top-bar box">
+                <div class="item notifs ig5">
+                    <div class="notif">
+                        <span class="green icon icon-ok-sign"></span>
+                        <p><strong>Weekly backup successful</strong>Completed yesterday, at 12:01 PM</p>
+                    </div>
+                    <div class="notif">
+                        <span class="red icon icon-lightningalt glow"></span>
+                        <p><strong>Warning: reactor core temperature critical</strong>Core failure imminent</p>
+                    </div>
+                    <div class="notif">
+                        <span class="blue icon icon-info-sign"></span>
+                        <p><strong>Oops, sorry about the scare</strong>It was just a bad sensor</p>
+                    </div>
+                </div>
+                <div class="item ig5 tb-act buttons">
+                    <button class="ig8"><span class="icon icon-layers"></span>Manage ADs</button>
+                    <button class="ig8"><span class="icon icon-groups-friends"></span>Manage users</button>
+                </div>
+                <div class="item ig3 tb-act">
+                    <button class="ig16"><span class="icon icon-html"></span>Webmaster tools</button>
+                </div>
+                <div class="item ig3 tb-act">
+                    <button class="orange toggle ig16"><span class="icon right icon-tools"></span>Maintenance mode</button>
+                </div>
+                <span id="tb-handle"></span>
+
+            </div>
+
+            <div id="ui-acc-box" class="box g8 ui-row1">
+                <div class="accordion">
+                    <div class="section">
+                        <div class="head"><span class="icon icon-minimize"></span>Accordion</div>
+                        <div class="section-content">
+                            This is an accordion. Useful for displaying more data in a limited space.<br><br>
+                            Set a height on the box, and the script does the rest. If a section has overflowing content,
+                            it will automatically be made scrollable.<br><br>
+                            Like any other container, it can have images, buttons, inputs and other elements.<br><br>
+                            <button class="green">OK, understood</button>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head"><span class="icon icon-resize-vertical"></span>Section 2</div>
+                        <div class="section-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.<br><br>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.<br><br>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Section 3</div>
+                        <div class="section-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.<br><br>
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Section 4</div>
+                        <div class="section-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur.<br><br>
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ui-notifs-box" class="box g8 ui-row1">
+                <div class="header">Notifications</div>
+                <div class="content ui-notifs ov-no">
+                     <div class="notif red">
+                       Red notification (click for cake!)<span class="icon icon-cupcake"></span>
+                       <p class="nt-det">The cake is a lie.</p>
+                     </div>
+                     <div class="notif blue">
+                       Blue notification<span class="icon icon-infographic"></span>
+                     </div>
+                     <div class="notif green">
+                       Green notification<span class="icon icon-ok"></span>
+                     </div>
+                     <div class="notif orange glow">
+                       Orange, glowing notification<span class="icon icon-fire"></span>
+                     </div>
+                     <div class="notif purple">
+                       Purple notification<span class="icon icon-galaxyalt"></span>
+                     </div>
+                </div>
+            </div>
+
+            <br class="clear">
+
+            <ul class="box g8 breadcrumbs">
+                <li>Home</li>
+                <li>UI Elements</li>
+                <li class="sel">Breadcrumbs</li>
+            </ul>
+
+            <ul class="box g8 nav-menu">
+                <li>Level 1</li>
+                <li>Level 2</li>
+                <li>Level 3</li>
+                <li class="sel">Final Boss Fight</li>
+            </ul>
+
+            <div id="cont-nav-box" class="box nav-box ui-row2 g8">
+                <ul class="nav">
+                    <li data-nav="#tab1" class="sel"><span class="nav-icon icon-cog"></span>Settings</li>
+                    <li data-nav="#tab2" class="text">Text tab</li>
+                    <li class="nav-special no-sel"><ul><li data-nav="#tab3" class="icon-only"><span class="nav-icon icon-diamond"></span></li></ul></li>
+                    
+                </ul>
+                <div class="nav-cont">
+                    <div id="tab1" class="nav-item no-pad show">
+                        <p class="row">Tabbed navigation is useful for organizing and displaying relevant content.<br><br>
+                        The navigation's color, position and size as well as the content transition direction are customizable.</p>
+                        <div class="row pad-m">
+                            <div id="nav-color" class="buttons btn-m btn-radio">
+                                <button class="gray pressed"><span class="icon icon-brightnessfull"></span>Light</button>
+                                <button class="black"><span class="icon icon-brightness"></span>Dark</button>
+                            </div>
+                            <div id="nav-size" class="buttons btn-m btn-radio">
+                                <button class="mini normal pressed"><span class="icon icon-resize-small"></span>Normal</button>
+                                <button class="mini big"><span class="icon icon-resize-full"></span>Big</button>
+                            </div>
+                            <div id="nav-dir" class="buttons btn-m btn-radio">
+                                <button class="mini hz pressed"><span class="icon icon-resize-horizontal"></span>Horizontal</button>
+                                <button class="mini vt"><span class="icon icon-resize-vertical"></span>Vertical</button>
+                            </div>
+                            <br class="clear">
+                            <div id="nav-position" class="buttons btn-m btn-radio">
+                                <button class="mini left"><span class="icon icon-circleleft"></span>Left</button>
+                                <button class="mini top pressed"><span class="icon icon-circleup"></span>Top</button>
+                                <button class="mini right"><span class="icon icon-circleright"></span>Right</button>
+                                <button class="mini bottom"><span class="icon icon-circledown"></span>Bottom</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="nav-item pad-m">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.<br><br>
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.<br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur.<br> Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <div id="tab3" class="nav-item">
+                        <h3 class="al-c" style="margin-top: 100px;">Nothing to see here, move along.</h3>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="modal-demo-box" class="box ui-row2 g8">
+                <div class="header">Modal windows</div>
+                <div class="content modal-demos">
+                    <p>Modal windows can be used for prompts, dialogs, alerts, notifications and more.<br><br>
+                    There are 2 main types, normal and minimal. A modal can have a header, body, and/or footer, or just a body.<br><br>
+                    Modals can be animated when displayed (triggered) just by adding a class.<br><br>
+                    Clicking on the modal overlay or a button with class <span class="tag black inline">.close</span> within the modal will close it.</p>
+                    <button class="mini mod-tg" data-modal="#demo-modal">Modal Window</button>
+                    <button class="mini mod-tg" data-modal="#demo-modal-mini">Mini Modal</button>
+                    <button class="red mod-tg" data-modal="#confirm-vent">Inline Modal</button>
+                    <div class="modal-ov show">
+                        <div id="confirm-vent" class="box modal show">
+                            <div class="mod-body pad-l bdrad-top"><p class="no-mg">Are you sure you want to vent the reactor into the atmosphere?</p></div>
+                            <div class="mod-act"><div class="buttons flt-r close"><button class="red">NO</button><button class="green">YES!</button></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box ui-row3 g8">
+                <div class="header">Sliders</div>
+                <div class="content rows-pad-m">
+                    <div class="row"><label class="ig4">Slider</label><div id="slider1" class="green ig12"></div></div>
+                    <div class="row"><label class="ig4">Slider with steps</label><div id="slider2" class="blue ig12"></div></div>
+                    <div class="row"><label class="ig4">Slider with max</label><div id="slider3" class="orange ig12"></div></div>
+                    <div class="row"><label class="ig4">Slider with grades</label><div id="slider-grd" class="red ig12"></div></div>
+                    <div class="row"><label class="ig4">Range slider</label><div id="slider4" class="ig12"></div></div>
+                </div>
+            </div>
+
+            <div class="box ui-row3 g8">
+                <div class="header">Vertical Sliders</div>
+                <div class="content">
+                    <div class="cont"><div id="slider5" class="green"></div></div>
+                    <div class="cont"><div id="slider6" class="blue"></div></div>
+                    <div class="cont"><div id="slider7" class="orange"></div></div>
+                    <div class="cont"><div id="slider8" class="red"></div></div>
+                    <div class="cont"><div id="slider9"></div></div>
+                </div>
+            </div>
+
+            <div class="box g8 coll coll-only">
+                <div class="header"><span class="icon icon-baloon"></span>Header with icon</div>
+            </div>
+
+            <div class="box g8 coll coll-only">
+                <div class="header"><span class="icon icon-panda right"></span>Header with icon on the right</div>
+            </div>
+
+            <div class="box g8 coll coll-only">
+                <div class="header">Header with button <span class="tag black inline">and tag</span>
+                    <button class="green"><span class="icon icon-ok icon-s no-mg"></span></button>
+                </div>
+            </div>
+
+            <div id="head-btns-box" class="box g8 coll coll-only">
+                <div class="header">Header with buttons on the right
+                    <div class="buttons right">
+                        <button class="mini"><span class="icon icon-refresh icon-s no-mg"></span></button>
+                        <button class="mini"><span class="icon icon-cog no-mg"></span></button>
+                        <button class="red"><span class="icon icon-remove icon-xs no-mg"></span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box g8 pad ui-tag-box">
+                <span class="tag">Tag</span>
+                <span class="tag black">Black Tag</span>
+                <span class="tag green">Green Tag</span>
+                <span class="tag blue">Blue Tag</span>
+                <span class="tag orange">Orange Tag</span>
+                <span class="tag red">Red Tag</span>
+                <span class="tag purple">Purple Tag</span>
+            </div>
+
+            <div class="box g8 pad ui-tag-box">
+                <span class="badge">Badge</span>
+                <span class="badge black">Black Badge</span>
+                <span class="badge green">Green Badge</span>
+                <span class="badge blue">Blue Badge</span>
+                <span class="badge orange">Orange Badge</span>
+                <span class="badge red">Red Badge</span>
+                <span class="badge purple">Purple Badge</span>
+            </div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+
+            <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p class="al-c">No notifications or alerts to display</p>
+                </div>
+            </div>
+
+            <div id="demo-modal" class="modal box">
+                <div class="header">Modal Window</div>
+                <div class="mod-body pad-l">
+                    This is a simple modal window, with header, body and action "footer".
+                </div>
+                <div class="mod-act">
+                    <button class="close">Close</button>
+                </div>
+            </div>
+
+            <div id="demo-modal-mini" class="modal mini box">
+                <div class="header">Mini Modal Window
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+                <div class="mod-body">
+                    <p>This is a minimal modal window.</p>
+                </div>
+            </div>
+
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		$('.accordion').accordion();
+	});
+
+    /* CONTENT NAVIGATION WIDGET */
+
+    $('#nav-color button').click( function() {
+        var nav = $(this).parents('.nav-cont').siblings('.nav');
+        if ($(this).hasClass('gray') && nav.hasClass('dark')) nav.removeClass('dark');
+        if ($(this).hasClass('black')) nav.addClass('dark');
+    });
+    $('#cont-nav-box .row button').click( function() {
+        var navBox = $(this).parents('.nav-box');
+        if ($(this).hasClass('top')) navBox.removeClass('left right btm');
+        if ($(this).hasClass('left')) navBox.removeClass('right btm').addClass('left');
+        if ($(this).hasClass('right')) navBox.removeClass('left btm').addClass('right');
+        if ($(this).hasClass('bottom')) navBox.removeClass('left right').addClass('btm');
+        if ($(this).hasClass('normal')) navBox.removeClass('nav-big');
+        if ($(this).hasClass('big')) navBox.addClass('nav-big');
+        if ($(this).hasClass('hz')) navBox.removeClass('vt');
+        if ($(this).hasClass('vt')) navBox.addClass('vt');
+    });
+
+    /* SLIDERS */
+
+    $('#slider1').slider({ range: 'min', value: 25 });
+    $('#slider2, #slider-grd').slider({ range: 'min', value: 50, step: 10 });
+    $('#slider3').slider({ range: 'max', value: 50, max: 100 });
+    $('#slider4').slider({ range: true, values: [25, 75] });
+    $('#slider5').slider({ orientation: 'vertical', range: 'min', value: 70 });
+    $('#slider6').slider({ orientation: 'vertical', range: 'min', value: 40, step: 10 });
+    $('#slider7').slider({ orientation: 'vertical', range: 'max', value: 20 });
+    $('#slider8').slider({ orientation: 'vertical', range: 'min', value: 40 });
+    $('#slider9').slider({ orientation: 'vertical', range: true, values: [20, 70] });
+
+    $('#slider-grd, #slider7, #slider8').gradeslider();
+
+    </script>
+</body>
+</html>

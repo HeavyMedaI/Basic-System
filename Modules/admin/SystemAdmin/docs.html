@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admax Docs</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="res/docs/snippet.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/inputs.js"></script>
+    <script src="res/docs/snippet.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+    <!--NAVIGATION-->
+
+    <ul class="doc-nav vt">
+      <li class="active"><a href="#doc-intro" class="button">Introduction</a></li>
+      <li><a href="#struct" class="button">Structure</a></li>
+      <li><a href="#html" class="button">HTML</a></li>
+      <li><a href="#inputs" class="button">Inputs</a></li>
+      <li><a href="#css" class="button">CSS</a></li>
+      <li><a href="#jquery" class="button">jQuery</a></li>
+      <li><a href="#cred" class="button">Assets, credits</a></li>
+    </ul>
+
+    <div id="content" class="doc-page"><!--BEGIN MAIN CONTENT-->
+
+		<div id="doc-intro" class="box full">
+			<p>By: <span>Alex Nitu (<a href="http://themeforest.net/user/novalex">novalex</a>)</span></p>
+			<p>Created on: <span>23.12.2013</span></p>
+			<p>Version: 1.0</p>
+		</div>
+
+		<h2>Admax User Interface - Documentation</h2>
+		<h3>Thank you for choosing Admax!</h3>
+		<p>
+			Feedback and suggestions are welcome and will be considered for future updates. You can leave them as a comment on the item's page, or send me an email through my <a href="http://themeforest.net/user/novalex">profile page</a>.
+		</p>
+
+		<div class="box full">
+			<p>I recommend inspecting Admax with your browser's Dev Tools as you're reading the documentation, to better understand its structure and code, and get a visual representation.</p>
+		</div>
+
+		<h2 id="struct">File structure</h2>
+
+		<ul>
+	        <li><span>css/ - </span>stylesheet files
+	            <ul>
+			        <li><span>anims.css - </span>CSS3 animations &amp; transitions</li>
+					<li><span>core.css - </span>reset / normalize, grid, font-faces</li>
+					<li><span>global.css - </span>helper classes, styles and colors</li>
+					<li><span>icons.css - </span>WebHostingHub Glyphs font icons</li>
+					<li><span>inputs.css - </span>input styling</li>
+					<li><span>login.css - </span>login stylesheet</li>
+					<li><span>style.css - </span>main styling and layout</li>
+					<li><span>ui.css - </span>UI elements styling</li>
+	            </ul>
+	        </li>
+	        <li><span>img/ - </span>the image directory, of course</li>
+	        <li><span>js/ - </span>jQuery files and plugins
+	            <ul>
+					<li><span>flot.js - </span>Flot chart plotting plugin</li>
+					<li><span>functions.js - </span>global functions and lightweight plugins</li>
+					<li><span>inputs.js - </span>input functions like checkbox, form validation, tooltips, notifications and more</li>
+					<li><span>jquery.js, jquery-ui.js - </span>jQuery and jQuery UI files</li>
+					<li><span>justgage.js - </span>gage plugin</li>
+					<li><span>sparkline.js - </span>sparkline chart plugin</li>
+					<li><span>tablesorter.js - </span>table filtering plugin</li>
+	            </ul>
+	        </li>
+	        <li><span>res/ - </span>resources like fonts, the PHP files and plugins like elFinder and tinyMce</li>
+	        <li><span>403, 404, 503.html - </span>error pages, the bad news givers of the internet</li>
+	        <li><span>analytics.html - </span>lines, bars, pies, donuts (not the delicious kind, though)</li>
+	        <li><span>dash.html - </span>the homepage, the first page you see after logging in or hacking an account</li>
+	        <li><span>extras.html - </span>extras page, growl alerts, typography, file manager</li>
+	        <li><span>grid.html - </span>grid demo - sizes, combinations, nesting</li>
+	        <li><span>inputs.html - </span>the inputs page - buttons, selects, tooltips, forms and various fields</li>
+	        <li class="last"><span>ui.html - </span>UI elements page - accordion, sortable boxes, notifications and more</li>
+        </ul>
+
+        <div class="box full">
+	        <p>The smaller plugin stylesheets have been included in ui.css, minified plugins have been included in functions.js and inputs.js. Larger plugins and stylesheets are standalone.</p>
+        </div>
+
+        <h2 id="html">HTML</h2>
+
+        <h3>Basic page structure</h3>
+
+        <p>
+	        <span class="tag inline">&lt;div id="wrapper"&gt;</span> - wraps all the page's content<br><br>
+	        <span class="tag inline">&lt;div id="sidebar"&gt;</span> - the sidebar, which includes the navigation, user avatar and notifications<br>
+	        Can set position by adding class <span class="tag inline">sidebar-hz sidebar-top</span>, <span class="tag inline">sidebar-hz sidebar-bottom</span> or <span class="tag inline">sidebar-right</span> to <span class="tag inline">&lt;div id="wrapper"&gt;</span>.<br><br>
+	        <span class="tag inline">&lt;div id="nav"&gt;</span> - navigation menu.
+        </p>
+
+        <pre class="box full">
+	        &lt;ul id="nav"&gt;
+	                &lt;li class="active"&gt;&lt;span class="nav-icon icon-home"&gt;&lt;/span&gt;Active menu item&lt;/li&gt;
+	                &lt;li&gt;
+			                &lt;a href="link to page.html"&gt;&lt;/a&gt;&lt;span class="nav-icon icon-chart"&gt;&lt;/span&gt;Basic menu item
+			                &lt;ul class="sub-nav"&gt;
+					                &lt;li&gt;&lt;a href="link to page.html"&gt;&lt;/a&gt;&lt;span class="nav-icon icon-name"&gt;&lt;/span&gt;Sub-menu item&lt;/li&gt;
+			                &lt;/ul&gt;
+				    &lt;/li&gt;
+	        &lt;/ul&gt;</pre>
+
+		<p><span class="tag inline first">&lt;div id="content"&gt;</span> - the page's content goes here. Sometimes has a page class, so content on that page can be easily arranged or styled.</p>
+
+		<p><span class="tag inline first">&lt;div class="modal-ov"&gt;</span> - the modal window container and overlay. Visible with class <span class="tag inline">show</span>.</p>
+
+		<p><span class="tag inline first">&lt;/div&gt;</span> - end wrapper.</p>
+
+		<hr>
+
+		<h3>Boxes</h3>
+
+		<div class="box full"><p>Also known as content holders, panels, or "innard restrictors", boxes are containers for elements, text or what have you. There are 2 main types: simple, like this one and with header.</p></div>
+
+		<pre class="box full">
+		&lt;div class="box"&gt;I'm a simple box&lt;/div&gt;</pre>
+
+		<div class="box no-pad full">
+			<div class="header">Box with header</div>
+			<div class="content">
+			  <pre>
+			    &lt;div class="box"&gt;
+			        &lt;div class="header"&gt;I'm a header&lt;/div&gt;
+			        &lt;div class="content"&gt;
+			            And I'm the body!
+			        &lt;/div&gt;
+			    &lt;/div&gt;</pre>
+			</div>
+		</div>
+
+		<div class="box full"><p>Clicking on a box's header will collapse it. Adding class <span class="tag inline">coll</span> will make it collapsed by default.</p></div>
+
+		<div class="box no-pad coll full">
+			<div class="header">Box collapsed by default</div>
+			<div class="content pad-m-full" style="overflow: hidden; display: none;">
+			  And now it's not collapsed anymore.
+			</div>
+		</div>
+
+		<p>To add an icon to a box header, just append <span class="tag inline">&lt;span class="icon icon-name"&gt;&lt;/span&gt;</span> to it. The same for buttons and button groups (code in the "Inputs" section).<br><br>
+		If you want it on the right, add class <span class="tag inline">right</span> to it.</p>
+
+		<hr>
+
+		<h3>Content navigation</h3>
+
+		<p>
+			The tab-like content navigation is useful when you need to display a lot of information in a restricted space, or you just want to have tabs because you are an adult and can do whatever you want.<br><br>
+			The selected tab gets class <span class="tag inline">sel</span> and its corresponding content gets class <span class="tag inline">show</span>.
+		</p>
+
+		<pre class="box full">
+			&lt;div class="box nav-box"&gt;
+			    &lt;ul class="nav"&gt;
+			        &lt;li data-nav="#tab1" class="sel"&gt;Tab 1 (selected)&lt;/li&gt;
+			        &lt;li data-nav="#tab2"&gt;Tab 2&lt;/li&gt;
+			    &lt;/ul&gt;
+			    &lt;div class="nav-cont"&gt;
+			        &lt;div id="tab1" class="nav-item show"&gt;Tab 1 content (visible).&lt;/div&gt;
+			        &lt;div id="tab2" class="nav-item"&gt;Tab 2 content.&lt;/div&gt;
+			    &lt;/div&gt;
+			&lt;/div&gt;</pre>
+
+		<p>Adding class <span class="tag inline">nav-big</span> to the nav box will enlarge the nav.<br><br>
+		   Classes <span class="tag inline">left</span>, <span class="tag inline">right</span> and <span class="tag inline">btm</span> set the nav's position.<br><br>
+		   To make the nav dark, add class <span class="tag inline black">dark</span> to <span class="tag inline">.nav</span>.<br><br>
+			Content is transitioned vertically or horizontally. The default transition direction is horizontal, to make it vertical add class <span class="tag inline">vt</span> to the nav box.
+		</p>
+
+		<hr>
+
+		<h3>Modal dialogs</h3>
+
+		<p>A modal dialog's structure is similar to the box. The code below is for a modal with header, body and navigation menu, like the one you can see on every page if you click Settings or User CP.</p>
+
+		<pre class="box full">
+			&lt;div class="modal-ov"&gt;
+			    &lt;div class="box modal" id="mod-id"&gt;
+			        &lt;div class="header"&gt;Modal Title&lt;/div&gt;
+			        &lt;div class="mod-body"&gt;
+			            Modal content
+			        &lt;/div&gt;
+			        &lt;div class="mod-act"&gt;
+			            &lt;button class="close"&gt;Close&lt;/button&gt;
+			       &lt;/div&gt;
+			     &lt;/div&gt;
+			&lt;/div&gt;</pre>
+
+		<p>
+			To show a modal on click, assign an id to the element you want to trigger it and add a <span class="tag inline">data-modal</span> attribute with the id of the target modal. Then, add class <span class="tag inline">mod-tg</span> to the trigger or call the modal function with <span class="tag inline jqtag">$('#trigger-id').modal();</span>.<br><br>
+			If the modal's content is tabbed and you want the trigger to show a specific tab, also add the tab id in the <span class="tag inline">data-modal</span> attribute.
+		</p>
+		<pre class="box">&lt;button id="trigger-id" data-modal="#mod-id #tab-id"&gt;Show modal&lt;/button&gt;</pre>
+		<p>
+			When a modal is triggered, both the modal container (.modal-ov) and the triggered modal get class <span class="tag inline">show</span>. Clicking on the modal overlay or a button with class <span class="tag inline">close</span> will hide the modal.
+		</p>
+
+		<hr>
+
+		<h3>Icons</h3>
+
+		<p>
+			To display an icon, add class <span class="tag inline">icon icon-name</span> to an element.<br><br>
+			For arrows use class <span class="tag inline">arrow</span> instead.<br><br>
+			You can see the arrow character map in "Arrows.jpg".<br><br>
+			To browse the icons, go to <a href="http://www.webhostinghub.com/glyphs/" target="_blank">WebHostingHub</a>'s website.
+		</p>
+
+		<pre class="box full">
+			&lt;span class="icon icon-home"&gt;&lt;/span&gt;</pre>
+
+		<hr>
+
+		<h3>Other elements</h3>
+
+		<h4>Tooltips</h4>
+
+		<pre class="box full">
+			&lt;button class="ttip" title="The tooltip will display this"&gt;Show tooltip&lt;/button&gt;</pre>
+
+		<p>
+			Tooltips can be triggered from any element, it just needs class <span class="tag inline">ttip</span> and a title or <span class="tag inline">data-ttip="What you want the tooltip to say"</span> attribute.<br><br>
+			Options can be set with the <span class="tag inline">data-ttip-opt</span> attribute, get added to the tooltip element as classes, and can be the following:
+		</p>
+
+		<ul>
+			<li><span class="tag inline">top</span> - positions tooltip to the top of the element (default).</li>
+			<li><span class="tag inline">left</span> - positions tooltip to the left of the element.</li>
+			<li><span class="tag inline">right</span> - positions tooltip to the right of the element.</li>
+			<li><span class="tag inline">bottom</span> - positions tooltip to the bottom of the element.</li>
+			<li class="no-mg"><span class="tag inline">dark</span> - dark tooltip instead of light.</li>
+		</ul>
+
+		<div class="box full"><p>jQuery UI's "position" function is used to perfectly align the tooltip to the element, so jquery-ui.js must be included on pages with tooltips.</p></div>
+
+		<h4>Notifications</h4>
+
+		<pre class="box full">
+			&lt;div class="notif"&gt;
+			    Notification text &lt;span class="icon"&gt;Icon&lt;/span&gt;
+			    &lt;p class="nt-det"&gt;Notification details&lt;/p&gt;
+			&lt;/div&gt;</pre>
+
+		<p>
+			If a notification contains details (<span class="tag inline">.nt-det</span>) it will expand on first click and close on second. If it doesn't contain details, it will close on first click.
+		</p>
+
+		<ul>
+			<li><span class="tag inline">hide</span> - hides notification.</li>
+			<li><span class="tag inline">auto</span> - sets height to auto.</li>
+			<li><span class="tag inline">expanded</span> - expands notification, displaying the details.</li>
+			<li><span class="tag inline">no-icon</span> - removes extra padding on the right.</li>
+			<li class="no-mg"><span class="tag inline jqtag">$.fn.notif();</span> - included in $.fn.inputs();</li>
+		</ul>
+
+		<h4>Growl notifications</h4>
+
+		<p>
+			The growl notifications use <a href="https://github.com/CodeSeven/toastr" target="_blank">toastr</a>. Simple and easy to use, you can create a growl style notification with:
+		</p>
+
+		<pre class="box">
+			toastr.success('Success growl');</pre>
+
+		<p>
+			There are 4 types of growls: success, error, warning and info. You can also give it a title, and set options like position and timeout. The code below demonstrates how to show a growl when a button is clicked:
+		</p>
+
+		<pre class="box">
+			$('#btn').click( function() {
+			    toastr.options.positionClass = 'toast-top-left';
+			    toastr.error('Shutting down in... now' , 'Error');
+			});</pre>
+
+		<p>The position options are:<br><br>
+			<span class="tag inline">toast-top-right</span> (default), <span class="tag inline">toast-top-left</span>, <span class="tag inline">toast-bottom-right</span>, <span class="tag inline">toast-bottom-left</span>, <span class="tag inline">toast-top-full</span> and <span class="tag inline">toast-bottom-full</span>.
+		</p>
+
+		<h4>Sliders</h4>
+
+		<pre class="box">
+			&lt;div id="slider" class="slider"&gt;&lt;/div&gt;
+
+			$('#slider').slider();</pre>
+
+		<p>To enable the value/grade display, call the <span class="tag inline jqtag">$('#slider').gradeslider();</span> function.</p>
+
+		<hr>
+
+        <h3>The grid</h3>
+
+        <p>Admax uses a simple &amp; straight-forward grid system. There are 16 sizes (g1 to g16), so two boxes with class <span class="tag inline">g8</span> would each be half the content size and add up to 100% width, forming a row.<br><br>
+	        If you don't want the element to have margins, use class ig1 to ig16 instead. Both <span class="tag inline">.ig16</span> and <span class="tag inline">.full</span> wil set the width to 100%.<br><br>
+	        See the <a href="grid.html">grid page</a> to see each grid size and how wide it would be on your screen.
+        </p>
+
+        <hr>
+
+        <h2 id="inputs">Buttons</h2>
+
+        <p>
+	        There are 4 button sizes: <span class="tag inline">btn-s</span> small (24px), normal (28px), <span class="tag inline">btn-m</span> medium (30px) and <span class="tag inline">btn-l</span> large (34px).<br><br>
+	        Adding an icon to a button is the same as with a box header. Append an icon element to it, and it's done.<br><br>
+	        For buttons that only contain the icon and no text, add class <span class="tag inline">no-mg</span> to the icon element.<br><br>
+	        You can adjust the icon using the font-size and line-height helper classes (detailed in the CSS section). Hover over the blue button to see the code.<br><br>
+	        Adding class <span class="tag inline">toggle</span> will make the button toggleable. Adding class <span class="tag inline">pressed</span> will activate the pressed state.
+        </p>
+
+		<button>&lt;button&gt;&lt;/button&gt;</button>
+		<button class="green">class="green"</button>
+		<button class="orange btn-m"><span class="icon icon-panda right"></span>
+			&lt;button class="orange btn-m"&gt;&lt;span class="icon icon-name right"&gt;&lt;/span&gt;&lt;/button&gt;
+		</button>
+		<button class="black toggle btn-m"><span class="icon icon-chat"></span>
+		    class="black toggle btn-m" 
+		</button>
+		<div class="button blue btn-m lh-xl ttip" data-ttip="&lt; div class='button blue btn-m lh-xl'&gt;&lt;span class='icon icon-name no-mg'&gt;&lt;/span&gt;&lt; /div&gt;" data-ttip-opt="top dark"><span class="icon icon-lab-flask no-mg"></span></div>
+
+		<h4>Button groups</h4>
+
+		<p>
+			Button groups are very easy to create, just make a div with class <span class="tag inline">buttons</span> and append the buttons you want grouped to it.<br><br>
+			You can set each button's width using the 'igX' grid classes.<br><br>
+			You can add button size classes directly to the .buttons div instead of on each button separately. Adding class <span class="tag inline">wide</span> will make the buttons wider.<br><br>
+			Adding class <span class="tag inline">btn-radio</span> to a button group will "radio" the buttons.
+	    </p>
+
+        <pre class="box">
+	        &lt;div class="buttons btn-m"&gt;
+	            &lt;button&gt;Previous&lt;/button&gt;
+	            &lt;button&gt;Next&lt;/button&gt;
+	        &lt;/div&gt;</pre>
+
+        <div class="buttons btn-m">
+	        <button>Previous</button>
+	        <button>Next</button>
+        </div>
+
+        <pre class="box">
+	        &lt;div class="buttons btn-radio btn-l"&gt;
+	            &lt;button&gt;This&lt;/button&gt;
+	            &lt;button&gt;No, this&lt;/button&gt;
+	        &lt;/div&gt;</pre>
+
+        <div class="buttons btn-radio btn-l">
+	        <button>This</button>
+	        <button>No, this</button>
+        </div>
+
+        <h4>Input groups</h4>
+
+        <p>
+	        You can group multiple inputs using an input group. As with the button groups, you can set the width on each element using 'igX' classes.
+        </p>
+
+        <pre class="box full">
+	        &lt;div class="input-group"&gt;
+	            &lt;input type="text" class="ig5" value="Input 1"&gt;
+	            &lt;input type="password" class="ig4" value="Input 2"&gt;
+	            &lt;input type="text" class="ig3" value="Input 3"&gt;
+	            &lt;input type="text" class="ig4" value="Input 4"&gt;
+	        &lt;/div&gt;</pre>
+
+        <div class="box pad-s full inp-grp-cont">
+			<div class="inp-grp full">
+				<input type="text" class="ig5" value="Input 1">
+				<input type="password" class="ig4" value="Input 2">
+				<input type="text" class="ig3" value="Input 3">
+				<input type="text" class="ig4" value="Input 4">
+			</div>
+        </div>
+
+        <hr>
+
+        <h2>Inputs</h2>
+
+        <div class="box full"><p>Inputs are very easy to create and manipulate. Those that need explaining are explained here, and the classes they can be given are listed below them (as well as the jQuery call, if any, in a gray tag).<br><br>
+        All inputs are shown on the <a href="inputs.html" target="_blank">inputs page</a>, so check it out if you haven't yet.
+        </p>
+        </div>
+
+        <h4>Text fields</h4>
+
+        <div class="box pre-cont full">
+	        <pre>&lt;input type="text" value="Basic text input"&gt;</pre>
+	        <input type="text" value="Basic text input">
+        </div>
+
+		<ul>
+			<li><span class="tag inline">number</span> - only accepts numbers</li>
+			<li><span class="tag inline">inset</span> - inset appearance</li>
+			<li><span class="tag inline">valid</span> - valid input</li>
+			<li class="no-mg"><span class="tag inline">error</span> - invalid input, red border is added</li>
+		</ul>
+
+        <h4>Spinner</h4>
+
+        <div class="box pre-cont full">
+	        <pre>&lt;input type="text" class="spinner" placeholder="Spinner"&gt;</pre>
+	        <input type="text" class="spinner" placeholder="Spinner">
+        </div>
+
+        <ul>
+            <li><span class="tag inline">big</span> - big buttons</li>
+        </ul>
+
+        <h4>File select</h4>
+
+		<div class="box pre-cont full">
+			<pre>
+				&lt;div class="file-sel"&gt;
+					&lt;input type="file" class="file"&gt;
+				&lt;/div&gt;</pre>
+			<div class="file-sel">
+				<input type="file" class="file">
+			</div>
+		</div>
+
+		<p><span class="tag inline jqtag">$.fn.fileSel();</span> - included in $.fn.inputs();</p>
+
+		<h4>Drops</h4>
+
+		<p>There are 2 types of drops: single button or split button.</p>
+
+        <div class="box pre-cont full">
+			<pre class="mg-top">
+				&lt;div class="drop single"&gt;
+					&lt;button class="btn-m black"&gt;Dropdown &lt;span class="arrow"&gt;&amp;&lt;/span&gt;&lt;/button&gt;
+					&lt;ul&gt;
+						&lt;li&gt;Option 1&lt;/li&gt;
+						&lt;li&gt;Option 2&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/div&gt;</pre>
+			<div class="drop single">
+				<button class="btn-m black">Dropdown <span class="arrow">&amp;</span></button>
+				<ul>
+					<li>Option 1</li>
+					<li>Option 2</li>
+				</ul>
+			</div>
+			<br class="clear">
+			<pre>
+				&lt;div class="drop"&gt;
+					&lt;button class="btn-m black"&gt;Dropdown&lt;/button&gt;
+					&lt;button class="btn-m black arrow"&gt;&amp;&lt;/button&gt;
+					&lt;ul&gt;...&lt;/ul&gt;
+				&lt;/div&gt;</pre>
+			<div class="drop">
+				<button class="btn-m black">Dropdown</button>
+				<button class="btn-m black arrow">&amp;</button>
+				<ul>
+					<li>Option 1</li>
+					<li>Option 2</li>
+				</ul>
+			</div>
+        </div>
+
+		<ul>
+			<li><span class="tag inline">al-r</span> - aligns the drop menu to the right of the button</li>
+			<li><span class="tag inline">arrow-l</span> - moves arrow to the left</li>
+			<li><span class="tag inline">drop-l</span> - sets drop direction to the left</li>
+			<li><span class="tag inline">drop-r</span> - sets drop direction to the right</li>
+			<li><span class="tag inline">drop-u</span> - sets drop direction upward</li>
+			<li class="no-mg"><span class="tag inline jqtag">$.fn.btnDrop();</span> - included in $.fn.inputs();</li>
+		</ul>
+
+		<div class="box full">
+			<p>Direction classes can be combined for more drop directions. For instance, <span class="tag inline">drop-l drop-u</span> will set the drop direction up and to the left.</p>
+		</div>
+
+        <h4>Select</h4>
+
+		<div class="box pre-cont full">
+			<pre>
+				&lt;select&gt;
+					&lt;option&gt;Select&lt;/option&gt;
+					&lt;option&gt;An&lt;/option&gt;
+					&lt;option&gt;Option&lt;/option&gt;
+				&lt;/select&gt;</pre>
+			<p class="details">Selects are transformed into the following HTML structure, to allow full customization:</p>
+			<pre class="mg-top">
+				&lt;div class="drop select"&gt;
+					&lt;select style="display: none;"&gt;...&lt;/select&gt;
+					&lt;ul&gt;
+						&lt;li class="sel"&gt;Select&lt;/li&gt;
+						&lt;li&gt;An&lt;/li&gt;
+						&lt;li&gt;Option&lt;/li&gt;
+					&lt;/ul&gt;
+					&lt;span class="opt-sel"&gt;Select&lt;/span&gt;
+					&lt;span class="arrow"&gt;&amp;&lt;/span&gt;
+				&lt;/div&gt;</pre>
+			<p class="details">
+				<span class="tag inline">&lt;span class="opt-sel"&gt;</span> displays the selected option's value. If no option is selected, it gets the value of the first option.<br><br>
+				When an option is selected, it gets the <span class="tag inline">selected</span> attribute added and its corresponding &lt;li&gt; gets class <span class="tag inline">sel</span>.
+			</p>
+			<select>
+				<option>Select</option>
+				<option>An</option>
+				<option>Option</option>
+			</select>
+		</div>
+
+		<ul>
+			<li><span class="tag inline">multiple</span> - allows for multiple options to be selected, listed as tags</li>
+			<li><span class="tag inline">no-arrow</span> - the arrow will not be added to the HTML</li>
+			<li><span class="tag inline">has-delete</span> - adds clear button for resetting the select</li>
+			<li><span class="tag inline">has-search</span> - adds search input</li>
+			<li><span class="tag inline">disabled</span> - disables transformed select, gets added if the select has attribute 'disabled'.</li>
+			<li><span class="tag inline jqtag">$.fn.makeSelect();</span> - transforms selects into the custom HTML structure, included in $.fn.inputs();</li>
+			<li class="no-mg"><span class="tag inline jqtag">$.fn.selectfn();</span> - provides functionality for transformed selects, called by $.fn.makeSelect(); , included in $.fn.inputs();</li>
+		</ul>
+
+        <h4>Checkboxes</h4>
+
+		<div class="box pre-cont full">
+			<pre>
+				&lt;input type="checkbox" class="checkbox"&gt;</pre>
+			<input type="checkbox" class="checkbox mg-top">
+			<pre>
+				&lt;input type="checkbox" class="checkbox big"&gt;</pre>
+			<input type="checkbox" class="checkbox big mg-top">
+			<span class="details">Like selects, checkboxes get transformed into the following HTML structure:</span>
+			<pre>
+				&lt;div class="checkbox-cont checkbox unchecked"&gt;
+					&lt;input type="checkbox" class="chbox" style="display: none;"&gt;
+					&lt;div class="on"&gt;&lt;span class="icon-ok"&gt;&lt;/span&gt;&lt;/div&gt;
+				&lt;/div&gt;</pre>
+		</div>
+
+        <ul>
+			<li><span class="tag inline">disabled</span> - disables transformed checkbox, gets added if the checkbox has attribute 'disabled'.</li>
+			<li><span class="tag inline">disabled</span> - disables transformed checkbox, gets added if the checkbox has attribute 'disabled'.</li>
+			<li class="no-mg"><span class="tag inline jqtag">$('.checkbox, .radio').checkfn();</span> - included in $.fn.inputs();</li>
+        </ul>
+
+        <h4>Form validation</h4>
+
+        <div class="box full">
+	        <p>Admax's form validation is based on <a href="https://github.com/nicholasbs/jquery-tiny-validation" target="_blank">jQuery Tiny Validation</a>, but most of the code has been written from scratch.<br><br>
+	        The inputs that can be validated as required are text inputs, selects, checkboxes and spinners. Text input validation options include e-mail or matching fields (for passwords, etc), and can be set a minimum number of characters with the <span class="tag inline">data-min="x"</span> attribute.<br><br>
+	        Each input type has a custom error message, displayed in a neat tooltip.<br><br>
+	        To validate a form, assign an id to it and add one of the classes below to the inputs in the form you want validated.<br>
+	        Then, call the validate function <span class="tag inline jqtag">$('#form-id').validate();</span>.
+	        </p>
+        </div>
+
+        <ul>
+	        <li><span class="tag inline">required</span> - makes input required, form will not submit until it is valid.</li>
+	        <li><span class="tag inline">email</span> - requires a valid e-mail address format (xyz@xyz.xyz) to be entered.</li>
+	        <li class="no-mg"><span class="tag inline">match</span> - requires two inputs to match (each must have this class, and a <span class="tag inline">data-match="same-for-every-input-in-set"</span> attribute.</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="css">CSS</h2>
+
+		<p>This section will explain the CSS files and the properties they contain.<br><br>
+		The CSS code is organized by elements and each part is commented, so finding and customizing what you need should be a piece of cake.<br><br>
+		Styles for the dark color scheme begin with '.dark ', and are usually located at the end of the element's styling for accessibility.</p>
+
+		<h4>anims.css</h4>
+
+        <p>Contains the CSS3 animations and transitions. Each one is commented, and the names are self-explanatory.<br><br>
+        View a demo on the author's site: <a href="http://www.justinaguilar.com/animations/index.html">CSS3 animations</a>.</p>
+
+        <hr>
+
+        <h4>core.css</h4>
+
+        <p>Contains reset/normalize code, page load spinner, font-faces and the grid</p>
+
+        <hr>
+
+        <h4>global.css</h4>
+
+		<p>Contains helper classes like floats, margins, padding, border-radius, gradients and colors. The code is pretty much self explanatory, reading through it should give you an idea of what each class does.</p>
+
+		<hr>
+
+		<h4>icons.css</h4>
+
+		<p>Stylesheet for the <a href="http://www.webhostinghub.com/glyphs/">WebHostingHub Glyphs</a> icon font.</p>
+
+		<hr>
+
+		<h4>inputs.css</h4>
+
+		<p>Contains styles for buttons, checkboxes, inputs, textareas, dropdowns, selects, spinner inputs, input and button groups, and input error tips.</p>
+
+		<hr>
+
+		<h4>login.css</h4>
+
+		<p>Styling for the login page, user select/switch, username not found prompt and register form.</p>
+
+		<hr>
+
+        <h4>style.css</h4>
+
+		<p>This is the main styling and layout file.<br><br>
+		It contains styling for each page's underlying structure, the sidebar, boxes, all page specific properties and responsive code.</p>
+
+        <hr>
+
+        <h4>ui.css</h4>
+
+		<p>Contains the styling for the top bar, navigation menus and wizard, accordion, notifications, tooltips, modals, sliders and other UI elements and widgets.</p>
+
+		<hr>
+
+		<h2 id="jquery">jQuery functions</h2>
+
+		<h4>functions.js</h4>
+
+		<ul>
+			<li><span class="tag inline jqtag">$.fn.tgclass()</span> - toggles a class on the target on click. Trigger needs a <span class="tag inline">data-tgcls="#target class"</span> attribute. Automatically called on elements with class <span class="tag inline">tgcls</span> in $.fn.loadfns();</li>
+			<li class="no-mg"><span class="tag inline jqtag">$.fn.loadfns()</span> - the page load and global calls function. If a page has functions that must be called on load, include them in the parameter as a function.</li>
+		</ul>
+
+		<pre class="box full">
+			$.fn.loadfns( function() {
+			  $.fn.callOnLoad(); // This function will be called on document load
+			};</pre>
+
+		<hr>
+
+		<h4>inputs.js</h4>
+
+		<ul>
+			<li><span class="tag inline jqtag">$.fn.checkfn()</span> - the checkbox function, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.notif()</span> - notification function, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.scrollspy()</span> - scrollspy function, as seen on the inputs and documentation pages.</li>
+			<li><span class="tag inline jqtag">$.fn.tooltip()</span> - tooltip function, automatically called on elements with class <span class="tag inline">ttip</span> in $.fn.loadfns();</li>
+			<li><span class="tag inline jqtag">$.fn.btnDrop()</span> - drop function for selects and drops, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.selectfn()</span> - function for selects and multiple selects, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.makeSelect()</span> - function for transforming selects into the custom HTML structure, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.closeOnBlur()</span> - function for closing selects and drops when clicking outside or on another select/drop</li>
+			<li><span class="tag inline jqtag">$.fn.validate()</span> - function for validating forms. Has a function for each input type</li>
+			<li><span class="tag inline jqtag">$.fn.numberInp()</span> - function for number only inputs (class <span class="tag inline">number</span>), included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.fileSel()</span> - function for file upload inputs, included in $.fn.inputs();</li>
+			<li><span class="tag inline jqtag">$.fn.gradeslider()</span> - function for sliders with value/grade display</li>
+			<li class="no-mg"><span class="tag inline jqtag">$.fn.inputs()</span> - global function containing frequently used input function calls, and the input delete (clear) function</li>
+		</ul>
+
+		<hr>
+
+      <h2 id="cred">Assets, plugins and credits</h2>
+      <ul>
+        <li><a href="http://www.justinaguilar.com/animations/" target="_blank">CSS3 Animation stylesheet</a></li>
+        <li><a href="http://www.webhostinghub.com/glyphs/" target="_blank">WebHostingHub Glyphs</a> - Icon Font</li>
+        <li><a href="http://www.tinymce.com/" target="_blank">TinyMCE</a> - WYSIWYG text editor</li>
+        <li><a href="http://tablesorter.com/" target="_blank">TableSorter</a></li>
+        <li><a href="https://datatables.net/" target="_blank">DataTables</a></li>
+        <li><a href="https://github.com/Studio-42/elFinder" target="_blank">elFinder</a> - file manager</li>
+        <li><a href="https://github.com/flot/flot" target="_blank">Flot</a> - analytics, chart plotting</li>
+        <li><a href="http://omnipotent.net/jquery.sparkline/" target="_blank">jQuery Sparkline</a> - sparkline chart plugin</li>
+        <li><a href="http://justgage.com/" target="_blank">justGage</a> - "gage" indicator plugin</li>
+        <li><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html" target="_blank">hoverIntent</a> - hover intent plugin</li>
+        <li><a href="https://github.com/aauthor/jquery-cookie-and-localStorage/" target="_blank">jQuery Cookie and localStorage</a> - cookie setting/reading plugin</li>
+        <li><a href="http://arshaw.com/fullcalendar/" target="_blank">FullCalendar</a></li>
+        <li><a href="https://gist.github.com/larrythefox/1636338" target="_blank">lightOrDark</a> - color detection plugin</li>
+        <li><a href="https://github.com/claviska/jquery-miniColors/" target="_blank">jQuery Minicolors</a> - color picker</li>
+        <li><a href="http://jamesflorentino.github.com/nanoScrollerJS/" target="_blank">nanoScroller</a> - scrollbar plugin</li>
+        <li><a href="http://jsfiddle.net/mekwall/up4nu/" target="_blank">Scrollspy</a></li>
+        <li><a href="http://www.steamdev.com/snippet/" target="_blank">Snippet</a> - syntax highlight plugin</li>
+        <li><a href="https://github.com/nicholasbs/jquery-tiny-validation" target="_blank">Tiny Validation</a> - Admax's form validation is based on this plugin</li>
+        <li class="no-mg"><a href="https://github.com/CodeSeven/toastr" target="_blank">Toastr</a> - growl-style notifications plugin</li>
+      </ul>
+
+      <p>
+        toastr, justGage, jQuery Minicolors, nanoScroller and Snippet are released under the <span class="bold">MIT License</span>:
+      </p>
+
+      <div class="box full"><p>
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and<br> associated documentation files (the "Software"), to deal in the Software without restriction, including<br> without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br> copies of the Software, and to permit persons to whom the Software is furnished to do so, subject<br> to the following conditions:<br><br>
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      </p></div>
+
+      <p>
+        All images, plugins and fonts are copyright of their respective authors.<br><br>
+        Special thanks to the <a href="http://stackoverflow.com" target="_blank">Stack Overflow</a> community, where I could always find help whenever I hit a bump, Themeforest and the Envato community. Oh, and the internet.
+      </p>
+
+    </div><!--END MAIN CONTENT-->
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		$('.doc-nav').scrollspy();
+		$('pre').snippet("html");
+	});
+    
+    </script>
+</body>
+</html>

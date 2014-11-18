@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/inputs.js"></script>
+    <script src="js/sparkline.js"></script>
+    <script src="js/flot.js"></script>
+    <script src="js/justgage.js"></script>
+    <script src="js/tablesorter.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div id="sidebar">
+            <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
+
+            <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"><div id="notif-unread" class="notif-tag">3</div></div>
+                <div id="coll-sidebar"></div>
+            </div>
+            
+            <ul id="nav">
+                <li class="active"><span class="nav-icon icon-home"></span>Dash</li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li>
+                    <a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+            </ul>
+        </div>
+
+        <div id="content" class="dash-page">
+
+            <div id="dash-bar" class="top-bar box">
+
+                <div id="stat1" class="stat up item"><span>$5845.00</span>earnings this month</div>
+                <div id="stat2" class="stat item"><span>$1200.00</span>payments due</div>
+                <div id="stat3" class="stat down item"><span>25,900</span>unique visitors</div>
+                <span class="spark item">5,6,4,2,-2,-4,-2,4,8,6,5,-4,-2,4,6</span>
+
+                <div id="alerts" class="item">
+                    <div class="content">
+                        <p id="last-chat"><strong>Michael</strong>: Sure thing, you know me!<span class="msg-time">6 mins ago</span></p>
+                        <div id="chat-notif">
+                            <div class="buttons">
+                                <button id="reply-btn" class="expand-tg gray" data-expand="#chat-reply">Reply</button>
+                                <button id="open-chat" class="gray mod-tg" data-modal="#chat-mod">Open chat</button>
+                            </div>
+                            <a href="#" data-expand="#chat-unread" class="expand-tg unread-msg"><strong>2</strong> other unread messages</a>
+                        </div>
+                        <span class="icon-chat item-icon"></span>
+                        <span class="coll-handle"></span>
+                    </div>
+                    <div class="expand-content no-pad">
+                        <div id="chat-reply">
+                            <input type="text" id="chat-reply-input" placeholder="Type in your message">
+                            <span id="chat-confirm">Message sent!</span>
+                            <span id="chat-load" class="icon-loadingflowcw spinning"></span>
+                        </div>
+                        <div id="chat-unread">
+                            <p><strong>jake.westbury87@al1as.com</strong>Hey man, how's it going? Got a new project, in case you're interested let me know!<span class="msg-time">Yesterday</span></p>
+                            <p><strong>Johnny</strong>Guys, some help please? I deleted some files to make room for... uhm... some HD movies, and now I'm getting all kinds of errors.<span class="msg-time">8:53 AM</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dash-cal" class="item">
+                    <span id="cal-day">19 Nov</span>
+                    <span class="icon-calendarthree item-icon"></span>
+                    <p id="cal-events">No events today</p>
+                </div>
+
+                <span id="tb-handle"></span>
+
+            </div>
+
+            <div class="portlets">
+
+                <div class="portlet green g4 resp-no-mg">
+                    <span class="icon icon-addtocart"></span>
+                    <h2>Products Sold <span>241</span></h2>
+                </div>
+
+                <div class="portlet blue g4">
+                    <span class="icon icon-money-cash"></span>
+                    <h2>Monthly Profit <span>$3840</span></h2>
+                </div>
+
+                <div class="portlet orange g4 resp-no-mg">
+                    <span class="icon icon-lightningalt"></span>
+                    <h2>Best Selling <span>Approduct</span></h2>
+                </div>
+
+                <div class="portlet red g4">
+                    <span class="icon icon-supportalt"></span>
+                    <h2>Support Tickets <span>12</span></h2>
+                </div>
+
+            </div>
+
+            <div id="ctrl-box" class="box g8 row1">
+	            <div id="ctrl-panel" class="nav-box left vt">
+
+                    <div class="nav-cont">
+
+                        <div id="sys-stats" class="nav-item ">
+                            <div id="ver-stats">
+                                <p><strong>System version:</strong> 1.0</p>
+                                <p><strong>System status:</strong><span class="icon-ok pos"></span></p>
+                                <p><strong>Auto backup:</strong><span class="icon-ok pos"></span></p>
+                                <p><strong>Apache:</strong><span class="icon-ok pos"></span> 2.4</p>
+                                <p><strong>PHP:</strong><span class="icon-ok pos"></span> 5.5.4</p>
+                                <p><strong>MySQL:</strong><span class="icon-ok pos"></span> 5.6</p>
+                            </div>
+                            <div id="sys-pbars">
+                                <div class="prog-bar">
+                                    <span>Server disk space</span>
+                                    <div style="width:40%;" class="green grad2"></div>
+                                </div>
+                                <div class="prog-bar">
+                                    <span>Server RAM usage</span>
+                                    <div style="width:50%;" class="blue grad2"></div>
+                                </div>
+                                <div class="prog-bar">
+                                    <span>Server CPU usage</span>
+                                    <div style="width:30%;" class="orange grad2"></div>
+                                </div>
+                                <div class="prog-bar">
+                                    <span>Bandwidth usage</span>
+                                    <div style="width:60%;" class="red grad2"></div>
+                                </div>
+                            </div>
+                            <div id="sys-updates">
+                                <p id="sys-up-ok">
+                                    <span class="icon-ok pos"></span> Everything is up to date
+                                </p>
+                                <p id="sys-up-check" style="display: none;">
+                                    <span class="icon-circleselection spinning"></span> Checking for updates...
+                                </p>
+                                <button id="chk-up-btn" class="mini grad2"><span class="icon icon-terminalalt"></span>Check for updates</button>
+                            </div>
+
+                            <div id="gages">
+                                <div id="cpu" class="gage"></div>
+                                <div id="ram" class="gage"></div>
+                                <div id="mem" class="gage"></div>
+                            </div>
+                        </div>
+
+                        <div id="profile-set" class="nav-item show">
+	                        <div id="profile-av">
+		                        <img src="img/avatars/alex.jpg" alt="User avatar">
+		                        <span id="profile-av-info"><strong>alex.jpg</strong> uploaded 12.07.2012</span>
+		                        <div class="buttons wide">
+		                        	<button class="change"><span class="icon icon-refresh"></span>Change</button>
+			                        <button class="remove"><span class="icon icon-remove"></span>Remove</button>
+		                        </div>
+	                        </div>
+
+	                        <div id="profile-role" class="inp-cont g16">
+                                <label>Role</label>
+                                <span class="icon-securityalt-shieldalt"></span><strong>Administrator</strong>
+                            </div>
+	                        
+                            <div class="inp-cont g8">
+                                <label>Name</label>
+                                <input placeholder="Name" value="Alex Nitu">
+                            </div>
+                            <div class="inp-cont g8">
+                                <label>E-mail</label>
+                                <input placeholder="Email" value="alex@alex.alx">
+                            </div>
+                            <div class="inp-cont g8">
+                                <label>Password</label>
+                                <input type="password" placeholder="Password" value="cant cme">
+                            </div>
+                            <div class="inp-cont multi g8">
+                                <label>Birthdate</label>
+                                <div class="inp-grp full">
+                                    <input class="g2" placeholder="Day" value="19">
+                                    <input class="g2" placeholder="Month" value="11">
+                                    <input class="g2" placeholder="Year" value="1994">
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <ul id="ctrl-nav" class="nav dark">
+                        <li class="bdrad-top-l sel" data-nav="#profile-set"><span class="icon-useralt nav-icon"></span></li>
+                        <li data-nav="#sys-stats"><span class="icon-taskmanager-logprograms nav-icon"></span></li>
+                        <li class="nav-special no-sel">
+                            <ul class="no-sel">
+                                <li id="set-tg" data-modal="#ctrl-set" class="mod-tg ttip" data-ttip-opt="dark" title="Settings"><span class="icon-settingsandroid nav-icon"></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+	            </div>
+            </div>
+
+            <div id="dash-chart" class="box chart-box g8 row1"></div>
+
+            <div id="intro-box" class="box g8">
+                <div class="header"><span class="accent grad2">Welcome to Admax!</span></div>
+                <div id="intro" class="content scroll ov-no">
+	                <div class="scroll-cont">
+	                	<div class="row">
+	                		<span class="icon icon-diamond"></span><h2>Damn, that looks nice</h2>
+	                		<p>Admax has a crisp and clean design, so it's easy on the eyes indeed. Approved by the Admin Panel Frequenting Webmasters' Union.</p>
+	                	</div>
+	                	<div class="row al-r">
+	                		<span class="icon icon-layerorder"></span><h2>Whatever color you want</h2>
+	                		<p>There are 2 preset color schemes to choose from (light or dark), but you can also customize and fine tune colors to your liking.</p>
+	                	</div>
+	                	<div class="row">
+	                		<span class="icon icon-resize-full"></span><h2>Responsive, for all screen sizes</h2>
+	                		<p>Flexible layout and good ol' CSS ensure Admax looks good on all screen sizes and orientations, and that no important content is hidden.</p>
+	                	</div>
+	                	<div class="row al-r">
+	                		<span class="icon icon-cube"></span><h2>Everything you need, in the box</h2>
+	                		<p>Not just a theme, but a complete interface with various useful functions and UI elements, from dropdown buttons to modal windows.</p>
+	                	</div>
+	                	<div class="row">
+	                		<span class="icon icon-html"></span><h2>Clean &amp; organized code</h2>
+	                		<p>Admax's underlying code is carefully written and organized, to make reading, understanding and editing it easier than landing a small aircraft.</p>
+	                	</div>
+	                	<div class="row al-r">
+	                		<span class="icon icon-settingsandroid"></span><h2>Your settings ready on load</h2>
+	                		<p>Admax makes use of HTML5 local storage keys to store your settings on your machine, so everything will be as you left it when you return.</p>
+	                	</div>
+	                </div>
+                </div>
+            </div>
+
+            <div id="task-box" class="box g8">
+                <div class="header"><span class="icon icon-notestasksalt"></span>Tasks</div>
+                <div class="content">
+                    <ul class="rows">
+                    	<li class="task">
+	                    	Reply to support tickets
+	                    	<div class="task-progress" style="width: 40%;"></div>
+	                    	<span class="task-prog-ind">8/20</span>
+                    	</li>
+                    	<li class="task">
+	                    	Review feedback &amp; suggestions
+	                    	<div class="task-progress green" style="width: 80%;"></div>
+	                    	<span class="task-prog-ind">80%</span>
+                    	</li>
+                    	<li class="task done">
+	                    	Run 5 miles without dying
+	                    	<div class="task-progress green"></div>
+	                    	<span class="task-prog-ind">5/5</span>
+                    	</li>
+                    	<li>Learn PHP &amp; MySQL</li>
+                    	<li>Become successful novel author</li>
+                    	<li>Overturn government and assume command</li>
+                    	<li>Get this task done</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="table-box" class="box g16 ov-no">
+            	<table id="table" class="tablesorter"> 
+            	<thead class="header">
+    	           <tr><th>Buyer's Name</th><th>Shipping Address</th><th>Q'ty</th><th>Status</th></tr>
+    	         </thead>
+    	         <tbody>
+    	           <tr><td>Adam Burke</td><td>247 Independence St, MT 51382</td><td>64</td>
+    	             <td><span class="tag green">SENT</span></td>
+    	           </tr>
+    	           <tr><td>Laura Stanton</td><td>463 Coney Island Ave, NY 11230</td><td>25</td>
+    	             <td><span class="tag orange">PENDING</span></td>
+    	           </tr>
+    	           <tr><td>Joe Camden</td><td>1521 Vance Ave, TN 38104</td><td>999</td>
+    	             <td><span class="tag red">CANCELLED</span></td>
+    	           </tr>
+    	           <tr><td>David O'Malley</td><td>The Rainbow Pub, Laddy</td><td>30</td>
+    	             <td><span class="tag blue">PROCESSING</span></td>
+    	           </tr>
+    	           <tr><td>Michael Decker</td><td>420 Colin St, CO 78521</td><td>12</td>
+    	             <td><span class="tag green">SENT</span></td>
+    	           </tr>
+    	           <tr><td>Kim Chow</td><td>21 Shady Apartments, Thailand</td><td>200</td>
+    	             <td><span class="tag orange">PENDING</span></td>
+    	           </tr>
+    	           <tr><td>John Acker</td><td>64 Fulton Ave, WA 75416</td><td>50</td>
+    	             <td><span class="tag green">SENT</span></td>
+    	           </tr>
+    	         </tbody>
+            	</table>
+            </div>
+
+            <div id="footer">
+                <p>Powered by Admax - App &amp; Admin UI</p>
+            </div>
+
+        </div>
+
+        <!--MODAL WINDOWS-->
+
+        <div class="modal-ov">
+
+	        <div id="notif-mod" class="modal mini box modslideright">
+                <div class="header">
+                    <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                    <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+                </div>
+	            <div class="mod-body">
+		            <p class="alert warn">Low disk space remaining on partition E:/</p>
+		            <p class="alert info">MySQL updated to newest version (v5.6)</p>
+		            <p class="alert danger">Server #3 reporting high temperatures</p>
+	            </div>
+	        </div>
+
+            <div id="ctrl-set" class="modal box modslideupalt">
+                <div class="header"><span class="icon icon-cog"></span>Settings</div>
+                <div class="mod-body no-pad">
+                    <div class="row ig8 bd-right"><label>Automatic Updates</label><input type="checkbox" class="checkbox big" checked></div>
+                    <div class="row ig8"><label>Automatic Backup</label><input type="checkbox" class="checkbox big" checked></div>
+                    <div class="row">
+                        <label>Color Scheme</label>
+                        <div id="color-scheme" class="buttons btn-radio">
+                            <button class="light gray pressed ig8"><span class="icon icon-brightnessfull"></span>Light</button>
+                            <button class="black ig8"><span class="icon icon-brightness"></span>Dark</button>
+                        </div>
+                    </div>
+                    <div id="sidebar-pos-row" class="row">
+                        <label>Sidebar Position</label>
+                        <div id="sidebar-pos" class="buttons btn-radio">
+                            <button class="mini left pressed ig4">Left</button>
+                            <button class="mini top ig4">Top</button>
+                            <button class="mini right ig4">Right</button>
+                            <button class="mini bottom ig4">Bottom</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Sidebar Color</label>
+                        <div class="inp-cont no-pad">
+                            <input id="sidebar-color" value="#5b5a5a" data-defaultValue="#5b5a5a" placeholder="#5b5a5a">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Header Color</label>
+                        <div class="inp-cont no-pad">
+                            <input id="header-color" placeholder="Transparent">
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-act">
+                    <button id="res-set" class="red"><span class="icon icon-refresh"></span>Reset settings</button>
+                    <button class="close green"><span class="icon icon-ok"></span>Close</button>
+                </div>
+            </div>
+
+	        <div id="chat-mod" class="modal box chat-box modslidedownalt">
+	            <div class="mod-body nav-box left nav-big">
+		            <div class="nav-cont chat-cont">
+		            	<div id="usr1-msg" class="chat-msg nav-item show">
+			            	<p class="sent">What's up, how are you liking your new office?<span class="msg-info">Yesterday, 11:48 PM</span></p>
+		            		<p class="rec">It's pretty good, definitely better than my old one. Thanks!<span class="msg-info">8:35 AM</span></p>
+		            		<p class="sent">No problem, keep up the good work and this one will be your old one.<span class="msg-info">23 minutes ago</span></p>
+		            		<p class="rec">Sure thing, you know me!<span class="msg-info">6 minutes ago</span></p>
+		            	</div>
+		            	<div id="usr2-msg" class="chat-msg nav-item">
+		            		<p class="rec">Guys, some help please? I deleted some files to make room for... uhm... some HD movies, and now I'm getting all kinds of errors.<span class="msg-info">8:53 AM</span></p>
+		            		<p class="sent">Dammit Johnny, I told you to stop downloading porn on company PC's.<span class="msg-info">9:30 AM</span></p>
+		            	</div>
+		            	<div id="lisa-msg" class="chat-msg nav-item">
+		            		<p class="rec">Aww crap I spilled coffee on my favorite kittens sweater!<span class="msg-info">21 minutes ago</span></p>
+		            		<p class="sent">Well, I know what I'm getting you for your birthday.<span class="msg-info">15 minutes ago</span></p>
+		            	</div>
+		            </div>
+		            <ul class="nav dark">
+		            	<li data-nav="#usr1-msg" id="chat-usr1" class="sel bdrad-top-l">
+		            		<div class="contact-img"><img src="img/avatars/michael.jpg" alt="Contact avatar"></div>
+		            		<div class="contact-name">Michael</div>
+		            	</li>
+		            	<li data-nav="#usr2-msg" id="chat-usr2">
+		            		<div class="contact-img"><img src="img/avatars/johnny.jpg" alt="Contact avatar"></div>
+		            		<div class="contact-name">Johnny</div>
+		            	</li>
+		            	<li data-nav="#lisa-msg">
+		            		<div class="contact-img"><span class="icon icon-pictureframe"></span></div>
+		            		<div class="contact-name">Lisa</div>
+		            	</li>
+		            </ul>
+	            </div>
+	            <div class="mod-act">
+		            <form class="chat-form">
+		            	<input type="text" class="chat-inp" placeholder="Type in your message...">
+		            	<button type="submit" class="chat-send green"><span class="icon icon-exit"></span>SEND</button>
+		            </form>
+		            <button class="close">Close</button>
+	            </div>
+	        </div>
+
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		$('.spark').sparkline('html', {
+            type: 'bar', height: '40px', barSpacing: 4, barColor: '#89A824', negBarColor: '#d6692f'
+        });
+        $.fn.dashGages();
+        $.fn.dashChart();
+        $('#intro').nanoScroller();
+        $("#table").tablesorter();
+	});
+
+    // TOP BAR CHAT WIDGET
+
+    $('#reply-btn').click( function() { setTimeout( function() { $('#chat-reply-input').focus(); }, 1000); });
+
+    $("#chat-reply-input").keyup(function(e){
+          if (e.keyCode === 13 && $(this).val()) {
+            $('#chat-load').fadeIn(300).delay(500).fadeOut(300, function() {
+                $('#chat-reply-input').val('').blur();
+                $('#chat-confirm').fadeIn(300).delay(800).fadeOut(300);
+            });
+          };
+     });
+
+    // TOP BAR CALENDAR WIDGET
+
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth();
+    var months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+
+    $('#cal-day').text(''+day+' '+months[month]+'');
+
+    // GAUGES
+
+    $.fn.dashGages = function() {
+        cpu = new JustGage({ id:"cpu", value:25,min:0,max:100,title:"CPU (%)"});
+        ram = new JustGage({ id:"ram", value:1.6,min:0,max:8.2,title:"RAM (GB)"});
+        mem = new JustGage({ id:"mem", value:1.4,min:0,max:2.4,title:"HDD (TB)"});
+        setInterval( function() {
+            cpu.refresh(getRandomInt(10,50));
+            ram.refresh(getRandomInt(0.9,4.2));
+        }, 4000);
+    };
+
+    $('#chk-up-btn').click( function() {
+        $('#chk-up-btn').attr('disabled', true);
+        $('#sys-up-ok').fadeOut(150, function() {
+            $('#sys-up-check').fadeIn(300).delay(2000).fadeOut(300, function() {
+                $('#sys-up-ok').fadeIn(300);
+                $('#chk-up-btn').attr('disabled', false);
+            })
+        })
+    });
+
+    // TASKS & TO-DO LIST
+
+    $('#task-box ul').sortable({
+        placeholder: 'sort-placeholder',
+        containment: 'parent',
+        tolerance: 'pointer',
+        axis: 'y'
+    });
+    $('#task-box ul').disableSelection();
+
+    $('#task-box li:not(.task)').click( function() { $(this).toggleClass('done'); });
+
+    // CHART PLOTTING
+
+    $.fn.dashChart = function() {
+        var d1 = [[0,2], [2,4], [4,7], [6,8], [8,10], [10,10], [12,13], [14,14], [16,16], [18,15], [20,17]];
+            d2 = [[4,0], [8,2], [10,4], [14,5], [16,4], [18,7], [20,8]];
+        $.plot($("#dash-chart"), [ { data: d1, color: "#a0c420" }, { data: d2, color: "#d47c2f" } ], {
+            series: {
+            lines: { show: true, fill: true },
+            points: { show: true },
+            resize: false },
+            xaxis: { ticks: false },
+            yaxis: { ticks: false },
+            grid: { borderWidth: 0, hoverable: true }
+        });
+    };
+
+    // CONTROL PANEL SETTINGS
+
+    $('#sidebar-pos .left').click( function() { $('#wrapper').removeClass('sidebar-hz sidebar-top sidebar-right sidebar-bottom'); });
+    $('#sidebar-pos .top').click( function() { $('#wrapper').addClass('sidebar-hz sidebar-top').removeClass('sidebar-right sidebar-bottom'); });
+    $('#sidebar-pos .right').click( function() { $('#wrapper').addClass('sidebar-right').removeClass('sidebar-hz sidebar-top sidebar-bottom'); });
+    $('#sidebar-pos .bottom').click( function() { $('#wrapper').addClass('sidebar-hz sidebar-bottom').removeClass('sidebar-right sidebar-top'); });
+
+    // COLOR SCHEME SETTINGS
+
+    var storageStatus = $.storage();
+    if (storageStatus) {
+        $('#res-set').click( function() { localStorage.clear(); location.reload(true); });
+        var storedColorScheme = localStorage.getItem('color-scheme');
+            storedSidebarColor = localStorage.getItem('sidebar-color');
+            storedHeaderColor = localStorage.getItem('header-color');
+            userName = localStorage.getItem('user-name');
+    } else {
+        var storedColorScheme,
+            storedSidebarColor,
+            storedHeaderColor,
+            userName;
+        $('#res-set').attr('disabled','disabled');
+    }
+
+    var sidebarColor = $('#sidebar').css('background-color');
+    function rgb2hex(rgb){
+		rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+		return "#" +
+		("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+		("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+		("0" + parseInt(rgb[3],10).toString(16)).slice(-2).toLowerCase();
+    }
+    $.minicolors.defaults.position = 'top right';
+    
+    if (storedColorScheme) { $('#color-scheme .black').toggleBtn(); };
+    if (storedSidebarColor) { $('#sidebar-color').val(storedSidebarColor) };
+    if (storedHeaderColor) { $('#header-color').val(storedHeaderColor) };
+    if ($('body').hasClass('dark') && !storedHeaderColor) { $('#header-color').val('#707070').attr('placeholder','#707070') };
+    $('#color-scheme .black').click( function() {
+    	if (!$('body').hasClass('dark')) {
+            $('#load').fadeIn(400, function() { $('body').addClass('dark'); $('#load').delay(400).fadeOut(800); });
+            if (!storedHeaderColor) $('#header-color').val('#707070').attr('placeholder','#707070');
+            if (storageStatus) localStorage.setItem('color-scheme','dark');
+        }
+    });
+    $('#color-scheme .light').click( function() {
+        if ($('body').hasClass('dark')) {
+        	$('#load').fadeIn(400, function() { $('body').removeClass('dark'); $('#load').delay(400).fadeOut(800); });
+            if (!storedHeaderColor) $('#header-color').val('').attr('placeholder','Transparent');
+            if (storageStatus) localStorage.removeItem('color-scheme');
+        }
+    });
+    $('#sidebar-color').minicolors({
+    	change: function(hex) {
+    		$('#sidebar').css('background-color',hex).lightOrDark();
+            if (storageStatus) {
+                localStorage.setItem('sidebar-color',hex);
+                if ($('#sidebar').hasClass('light')) { localStorage.setItem('sidebar-light',1) } else { localStorage.removeItem('sidebar-light') };
+            }
+    	}
+	});
+	$('#header-color').minicolors({
+    	change: function(hex) {
+    		$('.box:not(.mini) .header').css('background-color',hex).lightOrDark();
+            if (storageStatus) {
+                localStorage.setItem('header-color',hex);
+                if ($('.box .header').hasClass('dark')) { localStorage.setItem('header-dark',1) } else { localStorage.removeItem('header-dark') };
+                if (!$(this).val()) { localStorage.removeItem('header-dark'); };
+            }
+    		if (!$(this).val()) { $('.box .header').removeClass('dark'); };
+    	}
+	});
+
+    $.fn.reverseChatMsg = function() {
+    	if ($(this).hasClass('rec')) { $(this).removeClass('rec').addClass('sent');
+    	} else if ($(this).hasClass('sent')) { $(this).removeClass('sent').addClass('rec'); };
+    };
+	if (userName == 'm1chael') {
+		$('#chat-usr1 img').attr('src','img/avatars/alex.jpg'); $('#chat-usr1 .contact-name').text('Alex');
+		$('#usr1-msg p').each( function() { $(this).reverseChatMsg(); });
+	};
+	if (userName == 'Johnny 1337') {
+		$('#chat-usr2 img').attr('src','img/avatars/alex.jpg'); $('#chat-usr2 .contact-name').text('Alex');
+		$('#usr2-msg p').each( function() { $(this).reverseChatMsg(); });
+	};
+
+    </script>
+</body>
+</html>

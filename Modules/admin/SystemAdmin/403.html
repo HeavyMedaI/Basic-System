@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Error 403</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<link rel="shortcut icon" href="favicon.png">
+	<!---CSS Files-->
+	<link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/anims.css">
+	<link rel="stylesheet" href="css/global.css">
+	<!---jQuery Files-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/inputs.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+        <div class="err-cont">
+
+            <h1 class="error-nr">403</h1>
+
+            <p class="error-msg">You don't have permission to access this page.</p>
+            <p class="error-desc">
+                A group of heavily armed security enforcers with ski masks <br>
+                will arrive at your address shortly to administer due punishment.
+            </p>
+
+            <span class="error-act">
+                <a href="dash.html" class="button">
+                    <span class="icon arrow">%</span> Go back
+                </a>
+            </span>
+
+        </div>
+
+	</div><!--END WRAPPER-->
+
+	<div id="load"><div id="spinner"></div></div>
+
+	<!---jQuery Code-->
+	<script type='text/javascript'>
+
+	$.fn.loadfns( function() { // PUT FUNCTIONS TO BE EXECUTED ON DOCUMENT READY HERE
+		
+	});
+    
+    if (document.referrer != '') $('.error-act a').attr('href', document.referrer);
+
+    </script>
+</body>
+</html>
