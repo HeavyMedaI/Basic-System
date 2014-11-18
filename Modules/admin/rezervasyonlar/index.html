@@ -1,0 +1,165 @@
+<?php require_once "Modules/admin/layouts/head.html"; ?>
+<body>
+<div id="wrapper">
+
+    <?php require_once "Modules/admin/layouts/sidebar.html"; ?>
+
+    <div id="content" class="dash-page">
+
+        <?php require_once "Modules/admin/layouts/top-bar.html"; ?>
+
+        <div class="box g16">
+            <div class="header">
+                <span class="icon icon-layers"></span> Rezervasyonlar
+            </div>
+            <div class="content no-pad">
+                <table class="display table" id="table-villalar">
+                    <thead>
+                    <tr>
+                        <th>Adı</th>
+                        <th>Telefonu</th>
+                        <th>E-posta</th>
+                        <th>Check-In</th>
+                        <th>Check-Out</th>
+                        <th>Yetişkin</th>
+                        <th>Çocuk</th>
+                        <th>Çocuk</th>
+                        <th class="center">İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+
+                        foreach($Rezervasyonlar as $index => $Rezervasyon){
+
+                            $Grade = ($index%2==0) ? "gradeX" : "gradeC";
+
+                            $Active = null;
+
+                            $Deactive = null;
+
+                            ($Rezervasyon->approved==0) ? $Deactive = "display: none;" : $Active = "display: none;";
+
+                            $Durum = ($Rezervasyon->approved==1) ? '<span class="tag green">Onaylandı</span>' : '<span class="tag red">Onaylanmadı</span>';
+
+                                echo '<tr data-rel="{\'id\':\''.$Rezervasyon->id.'\', \'email\':\''.$Rezervasyon->email.'\'}" class="'.$Grade.'">';
+                                echo '<td width="120">'.$Rezervasyon->name.'</td>';
+                                echo '<td width="100">'.$Rezervasyon->phone.'</td>';
+                                echo '<td width="200">'.$Rezervasyon->email.'</td>';
+                                echo '<td width="140">'.\System\Libraries\Date::tarihFormatla($Rezervasyon->checkin, "readable").'</td>';
+                                echo '<td width="140">'.\System\Libraries\Date::tarihFormatla($Rezervasyon->checkout, "readable").'</td>';
+                                echo '<td width="5" class="">'.$Rezervasyon->adults.'</td>';
+                                echo '<td width="5" class="">'.$Rezervasyon->children.'</td>';
+                                echo '<td width="50" class="durum">'.$Durum.'</td>';
+                                echo '<td class="center">
+                                    <button style="'.$Active.'" class="green rezervasyon-approval"><span class="icon icon-s icon-eye-open"></span> Onayla</button>
+                                    <button style="'.$Deactive.'" class="blue rezervasyon-cancel"><span class="icon icon-s icon-eye-close"></span> İptal Et</button>
+                                    <button class="red rezervasyon-sil"><span class="icon icon-s icon-trash"></span> Sil</button>
+                                </td>';
+                                echo '</tr>';
+
+                        }
+
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <?php require_once "Modules/admin/layouts/footer.html"; ?>
+
+    </div>
+
+    <!--MODAL WINDOWS-->
+
+    <div class="modal-ov">
+
+        <div id="confirm-vent" class="box modal confirm-sil">
+            <div class="mod-body pad-l bdrad-top"><p class="no-mg text-msg"></p></div>
+            <div class="mod-act"><div class="buttons flt-r close"><button class="red no">Hayır</button><button class="green yes">Evet!</button></div></div>
+        </div>
+
+        <div id="notif-mod" class="modal mini box modslideright">
+            <div class="header">
+                <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+                <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+            </div>
+            <div class="mod-body">
+                <p class="alert warn">Low disk space remaining on partition E:/</p>
+                <p class="alert info">MySQL updated to newest version (v5.6)</p>
+                <p class="alert danger">Server #3 reporting high temperatures</p>
+            </div>
+        </div>
+
+        <div id="ctrl-set" class="modal box modslideupalt">
+            <div class="header"><span class="icon icon-cog"></span>Settings</div>
+            <div class="mod-body no-pad">
+                <div class="row ig8 bd-right"><label>Automatic Updates</label><input type="checkbox" class="checkbox big" checked></div>
+                <div class="row ig8"><label>Automatic Backup</label><input type="checkbox" class="checkbox big" checked></div>
+                <div class="row">
+                    <label>Color Scheme</label>
+                    <div id="color-scheme" class="buttons btn-radio">
+                        <button class="light gray pressed ig8"><span class="icon icon-brightnessfull"></span>Light</button>
+                        <button class="black ig8"><span class="icon icon-brightness"></span>Dark</button>
+                    </div>
+                </div>
+                <div id="sidebar-pos-row" class="row">
+                    <label>Sidebar Position</label>
+                    <div id="sidebar-pos" class="buttons btn-radio">
+                        <button class="mini left pressed ig4">Left</button>
+                        <button class="mini top ig4">Top</button>
+                        <button class="mini right ig4">Right</button>
+                        <button class="mini bottom ig4">Bottom</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <label>Sidebar Color</label>
+                    <div class="inp-cont no-pad">
+                        <input id="sidebar-color" value="#5b5a5a" data-defaultValue="#5b5a5a" placeholder="#5b5a5a">
+                    </div>
+                </div>
+                <div class="row">
+                    <label>Header Color</label>
+                    <div class="inp-cont no-pad">
+                        <input id="header-color" placeholder="Transparent">
+                    </div>
+                </div>
+            </div>
+            <div class="mod-act">
+                <button id="res-set" class="red"><span class="icon icon-refresh"></span>Reset settings</button>
+                <button class="close green"><span class="icon icon-ok"></span>Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div><!--END WRAPPER-->
+
+<div id="load"><div id="spinner"></div></div>
+<script src="../_assets/js/datatables.js"></script>
+<?php require_once "Modules/admin/layouts/scripts.html"; ?>
+<!---jQuery Code-->
+<script type="text/javascript">
+    $.fn.loadfns( function() {
+        RezervasyonListener();
+        $('#table-villalar').dataTable({
+            "sPaginationType": "full_numbers", "aLengthMenu": [5, 10, 25], "iDisplayLength": 5,
+            "fnDrawCallback": function() {
+                $('select').makeSelect();
+                $.fn.selectfn();
+            },
+            "order": [[ 1, "asc" ]]
+        });
+        $('.spark').sparkline('html', {
+            type: 'bar', height: '40px', barSpacing: 4, barColor: '#89A824', negBarColor: '#d6692f'
+        });
+        $('#intro').nanoScroller();
+        $("#table").tablesorter();
+        $(".dataTables_wrapper .dataTables_paginate.paging_full_numbers a.button").click(function(){
+            RezervasyonListener();
+        });
+
+    });
+</script>
+</body>
+</html>

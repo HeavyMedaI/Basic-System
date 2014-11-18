@@ -1,17 +1,33 @@
-system:
+system: # General Configurations
   public_key: "98e682cc5aa8d02f432821fed030c201"
-config:
-  status: "on"
+config: # System Configurations
+  status: SYSTEM STATUS # on: Actived, off: Deactived
   private: true
-  project_name: "Akasya Web"
-  default_app: "villa"
-  administrator:
-    company: "Akasya Web"
-    name: "Musa ATALAY"
-    phone: "+905331357712"
-    email: "musaatalay.mobile@gmail.com"
-    website: "www.akasyabilisim.com.tr"
-    address:  795 Folsom Ave, Suite 600<br />San Francisco, CA 94107
-    facebook: musa.atalay.127
-    twitter: physicoos
-    linkedin: musa-atalay/79/3b9/514/
+  project_name: COMPANY NAME # it will be looking on page </title>
+  default_app: DEFAULT APPLICATION
+  administrator: # Administration Configurations
+    company: ADMIN COMPANY NAME
+    name: ADMIN NAME
+    phone: ADMIN PHONE
+    email: ADMIN E-MAIL
+    website: ADMIN WEB PAGE
+    address:  ADRESS
+    facebook: ADMIN FACEBOOK USERNAME
+    twitter: ADMIN TWITTER USERNAME
+    youtube: ADMIN YOUTUBE USERNAME
+    linkedin: ADMIN LINKEDIN USERNAME
+  smtp: # SMTP Configurations
+    host : SMTP HOST
+    secure : SMTP SECURE SOCKET
+    port : SMTP PORT
+    username : SMTP USERNAME
+    password : SMTP PASSWORD
+    debug : SMTP DEBUGING -> BOOLEAN
+    is_html : MAIN SETTING OF MAIL FORMAT -> BOOLEAN
+    is_smtp : MAIN SETTING OF SMTP CONNECTION -> BOOLEAN
+    mailer: MAIN SETTING OF SENDING PROTOCOL -> DEFAULT IS "smtp"
+    auth: MAIN SETTING OF SMTP AUTH -> BOOLEAN
+    keep_alive : MAIN SETTING OF SMTP CONNECTION LIFE -> BOOLEAN
+    title : MAIN SETTING OF MAIL SUBJECT
+    sender : MAIN SETTING OF MAIL SENDER
+    admin : MAIN SETTING OF MAIL ADMIN

@@ -2,6 +2,36 @@
  * Created by musaatalay on 29.10.2014.
  */
 var RezervasyonListener = function() {
+    $(".rezervasyon-approval").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var _this = $(this);
+        var Parent = $(this).parent().parent();
+        var dataJSON = eval("("+Parent.data("rel")+")");
+        $.post("active", {id: dataJSON.id}, function (e) {
+            var responseJSON = eval(e);
+            if(responseJSON.response){
+                Parent.find(".durum").html('<span class="tag green">Onaylandı</span>');
+                _this.css("display","none");
+                $(_this).parent().find(".rezervasyon-cancel").css("display","inline-block");
+            }
+        });
+    });
+    $(".rezervasyon-cancel").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var _this = $(this);
+        var Parent = $(this).parent().parent();
+        var dataJSON = eval("("+Parent.data("rel")+")");
+        $.post("deactive", {id: dataJSON.id}, function (e) {
+            var responseJSON = eval(e);
+            if(responseJSON.response){
+                Parent.find(".durum").html('<span class="tag red">Onaylanmadı</span>');
+                _this.css("display","none");
+                $(_this).parent().find(".rezervasyon-approval").css("display","inline-block");
+            }
+        });
+    });
     $(".rezervasyon-sil").click(function () {
         var Parent = $(this).parent().parent();
         var Data = eval("(" + Parent.data("rel") + ")");
@@ -108,22 +138,17 @@ var VillaKaydet = function(o, f){
     });
 };
 var SelectThumbnail = function(f){
-
     var CallBack = f || function(){};
-
     var Element = $(".select-thumb-list").find(".scroll-cont");
-
+    Element.empty();
     var VillaID = $("input[type='hidden'][name='id']").val();
-
     if(VillaID!=null&&VillaID!=false&&VillaID.length>=1){
-
         $.post("VillaGallery", {villa_id: VillaID}, function(e){
-
             if(e.length>=1){
                 $(e).each(function(i,v){
                     var Child = $("<div/>",{class: "select-thumb"})
                         .data("content","{'src':'"+v.src+"','id':'"+ v.id+"'}")
-                        .append('<img src="../../villa/index/'+v.src+'">')
+                        .append('<img src="../../villa/'+v.src+'">')
                         .appendTo(Element)
                         .click(function(){
                             var _selected = $(this);
@@ -143,8 +168,6 @@ var SelectThumbnail = function(f){
                     if(v.selected=='true'){
                         Child.addClass("selected");
                     }
-
-
                 });
             }else{
                 $("<span/>")
@@ -152,23 +175,16 @@ var SelectThumbnail = function(f){
                     .text("Hiç resim bulunamadı!")
                     .appendTo(Element);
             }
-
         });
-
     }else{
-
         $("<span/>")
             .attr("style","position: absolute; top: 45%; left: 21%;text-align: center; font-wight: bold; font-size: 1.4em;")
             .text("Önce villayı kaydediniz!")
             .appendTo(Element);
-
     }
-
     CallBack();
-
 }
 var DropZone = function(){
-    $(function(){
         Dropzone.options.GalleryUploader = {
             paramName: "file", // The name that will be used to transfer the file
             maxFilesize: 4, // MB
@@ -198,6 +214,7 @@ var DropZone = function(){
                                 var dataJSON = eval(e);
                                 // if the Villa has been registered
                                 if(dataJSON.response){
+                                    console.info("addedGallery");
                                     App(".select-thumb-list").loader(function(e){
                                         SelectThumbnail(function(){
                                             e.out();
@@ -289,6 +306,11 @@ var DropZone = function(){
                 var dataJSON = eval(e);
                 // if image has been deleted from database
                 if(dataJSON.response){
+                    App(".select-thumb-list").loader(function(e){
+                        SelectThumbnail(function(){
+                            e.out();
+                        });
+                    });
                     App(".ust-kutu .bildirim-alani").notif({
                         "message": {
                             "header": "Silme işlemi başarılı.",
@@ -316,6 +338,46 @@ var DropZone = function(){
             });
 
         });
-        /*App(".ust-kutu .bildirim-alani").notif();*/
+}
+var CloseSelectOptions = function(o){
+    var Element = $(o) || $(".drop.select.inset.no-sel-opt > ul > li");
+    Element = $(".drop.select.inset.no-sel-opt > ul > li");
+    Element.click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        if($(this).parent().parent().find("select > option:selected")){
+            $(this).parent().parent().find("select > option:selected").removeAttr("selected");
+            $(this).parent().parent().find("select > option").eq($(this).index()).attr("selected","selected");
+        }
+        $(this).parent().parent().removeClass("active");
+        $(this).parent().parent().find("span").eq(0).text($(this).text());
     });
 }
+var OpenSelectOptions = function(o){
+    var Element = $(o) || $(".drop.select.inset.no-sel-opt > span");
+    Element = $(".drop.select.inset.no-sel-opt > .opt-sel");
+    Element.click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).parent().addClass("active");
+        CloseSelectOptions();
+    });
+}
+var RezervasyonApproval = function(){
+
+
+
+}
+$(function(){
+    $(".sezon-fiyat .sezon-ekle").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var SezonFiyatHTML = '<div class="row inp-cont"><label><div class="drop select required inset no-sel-opt"><select style="display: none;" name="sezon_ay[]" class="required inset transformed"><option value="1">Ocak</option><option value="2">Şubat</option><option value="3">Mart</option><option value="4">Nisan</option> <option value="5">Mayıs</option><option value="6">Haziran</option><option value="7">Temmuz</option> <option value="8">Ağustos</option><option value="9">Eylül</option><option value="10">Ekim</option><option value="11">Kasım</option><option value="12">Aralık</option></select><ul><li class="sel">Ocak</li><li>Şubat</li><li>Mart</li><li>Nisan</li><li>Mayıs</li><li>Haziran</li><li>Temmuz</li><li>Ağustos</li><li>Eylül</li><li>Ekim</li><li>Kasım</li><li>Aralık</li></ul><span class="opt-sel">Ocak</span><span class="arrow">&amp;</span></div></label> <div class="ui-spinner spinner-body"><input name="sezon_fiyat[]" value="100.00" type="text" class="required g5 spinner number ui-spinner-input" placeholder="0.00" aria-valuenow="100" autocomplete="off" role="spinbutton"><button class="ui-spinner-button ui-spinner-up up ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="icon icon-chevron-up"></span></span></button><button class="ui-spinner-button ui-spinner-down down ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="icon icon-chevron-down"></span></span></button></div> </div>';
+        $(".sezon-fiyat-list").append(SezonFiyatHTML);
+        //$.fn.loadfns(function(){});
+        CloseSelectOptions();
+        OpenSelectOptions();
+    });
+    OpenSelectOptions();
+});
+/*App(".ust-kutu .bildirim-alani").notif();*/

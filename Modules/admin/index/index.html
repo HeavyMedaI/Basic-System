@@ -9,7 +9,7 @@
 
     <?php require_once "Modules/admin/layouts/top-bar.html"; ?>
 
-            <div class="portlets">
+            <div class="portlets hidden">
 
                 <div class="portlet green g4 resp-no-mg">
                     <span class="icon icon-addtocart"></span>
@@ -33,7 +33,7 @@
 
             </div>
 
-            <div id="ctrl-box" class="box g8 row1">
+            <div id="ctrl-box" class="box g8 row1 hidden">
 	            <div id="ctrl-panel" class="nav-box left vt">
 
                     <div class="nav-cont">
@@ -47,7 +47,7 @@
 
                             ?>
                             <div id="profile-av">
-                                <img src="../<?=str_replace("admin/", null, $Profile->avatar);?>" alt="<?=$Profile->firstname;?> <?=$Profile->lastname;?>">
+                                <img src="/admin/<?=str_replace("admin/", null, $Profile->avatar);?>" alt="<?=$Profile->firstname;?> <?=$Profile->lastname;?>">
                                 <span id="profile-av-info"><strong><?=$Image[(count($Image)-1)];?></strong> <?=$ImageUploadedTime;?> tarihinde yüklendi</span>
                                 <div class="buttons wide">
                                     <button class="change"><span class="icon icon-refresh"></span>Değiştir</button>
@@ -140,7 +140,7 @@
 	            </div>
             </div>
 
-            <div id="intro-box" class="box g8">
+            <div id="intro-box" class="box g8 hidden">
                 <div class="header"><span class="accent grad2">Welcome to Admax!</span></div>
                 <div id="intro" class="content scroll ov-no">
 	                <div class="scroll-cont">
@@ -172,7 +172,7 @@
                 </div>
             </div>
 
-            <div id="task-box" class="box g8">
+            <div id="task-box" class="box g8 hidden">
                 <div class="header"><span class="icon icon-notestasksalt"></span>Tasks</div>
                 <div class="content">
                     <ul class="rows">
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <div id="table-box" class="box g16 ov-no">
+            <div id="table-box" class="box g16 ov-no hidden">
             	<table id="table" class="tablesorter"> 
             	<thead class="header">
     	           <tr><th>Buyer's Name</th><th>Shipping Address</th><th>Q'ty</th><th>Status</th></tr>
@@ -310,11 +310,11 @@
 		            </div>
 		            <ul class="nav dark">
 		            	<li data-nav="#usr1-msg" id="chat-usr1" class="sel bdrad-top-l">
-		            		<div class="contact-img"><img src="../_assets/img/avatars/michael.jpg" alt="Contact avatar"></div>
+		            		<div class="contact-img"><img src="/admin/_assets/img/avatars/michael.jpg" alt="Contact avatar"></div>
 		            		<div class="contact-name">Michael</div>
 		            	</li>
 		            	<li data-nav="#usr2-msg" id="chat-usr2">
-		            		<div class="contact-img"><img src="../_assets/img/avatars/johnny.jpg" alt="Contact avatar"></div>
+		            		<div class="contact-img"><img src="/admin/_assets/img/avatars/johnny.jpg" alt="Contact avatar"></div>
 		            		<div class="contact-name">Johnny</div>
 		            	</li>
 		            	<li data-nav="#lisa-msg">
@@ -501,11 +501,11 @@
     	} else if ($(this).hasClass('sent')) { $(this).removeClass('sent').addClass('rec'); };
     };
 	if (userName == 'm1chael') {
-		$('#chat-usr1 img').attr('src','../_assets/img/avatars/alex.jpg'); $('#chat-usr1 .contact-name').text('Alex');
+		$('#chat-usr1 img').attr('src','/admin/_assets/img/avatars/alex.jpg'); $('#chat-usr1 .contact-name').text('Alex');
 		$('#usr1-msg p').each( function() { $(this).reverseChatMsg(); });
 	};
 	if (userName == 'Johnny 1337') {
-		$('#chat-usr2 img').attr('src','../_assets/img/avatars/alex.jpg'); $('#chat-usr2 .contact-name').text('Alex');
+		$('#chat-usr2 img').attr('src','/admin/_assets/img/avatars/alex.jpg'); $('#chat-usr2 .contact-name').text('Alex');
 		$('#usr2-msg p').each( function() { $(this).reverseChatMsg(); });
 	};
 

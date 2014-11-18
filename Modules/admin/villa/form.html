@@ -1,0 +1,283 @@
+<?php require_once "Modules/admin/layouts/head.html"; ?>
+<link rel="stylesheet" type="text/css" href="../_assets/plugins/dropzone/css/dropzone.css" />
+<script src="../_assets/res/tinymce/tinymce.js"></script>
+<!--<script src="../_assets/plugins/require.js"></script>
+<script src="../_assets/plugins/dropzone/dropzone-amd-module.js"></script>-->
+<script src="../_assets/plugins/dropzone/dropzone.js"></script>
+
+<body>
+
+<div id="wrapper">
+
+    <?php require_once "Modules/admin/layouts/sidebar.html"; ?>
+
+<div id="content" class="dash-page">
+
+    <?php require_once "Modules/admin/layouts/top-bar.html"; ?>
+
+    <div class=" g12">
+        <div class="box g16">
+            <div class="content rows-pad-m form big-label label-pad-m">
+                <div class="row inp-cont">
+                    <label>Villa Adı</label>
+                    <input name="name" value="<?=@$Villa->name;?>" type="text">
+                    <input class="villaId" value="<?=@$VillaID;?>" name="id" type="hidden">
+                </div>
+            </div>
+        </div>
+        <div id="text-editor" class="box g16 inp-row2">
+            <div class="header">Villa Açıklaması</div>
+            <div class="content">
+                <textarea name="description" id="wysiwyg"><?=@$Villa->description;?></textarea>
+            </div>
+        </div>
+        <div class="box g16">
+            <form class="dropzone" id="GalleryUploader" action="uploadGallery" method="post" enctype="multipart/form-data">
+                <?=$GalleryElements;?>
+            </form>
+        </div>
+    </div>
+
+    <div class="g4">
+        <div style="z-index: 12" class="box g16">
+            <div class="header">
+                İşlemler
+                <div class="buttons right">
+                    <button style="border-radius: 3px 3px 3px 3px !important;" class="green kaydet"><span class="icon icon-ok icon-s no-mg"></span> &nbsp; Kaydet</button>
+                </div>
+            </div>
+            <div class="content rows-pad-m form big-label label-pad-m">
+                <div class="row inp-cont">
+                    <?php
+                      $YatakSayisi[@$Villa->yatak_sayisi] = 'selected="selected"';
+                    ?>
+                    <label>Yatak Sayısı</label>
+                    <select name="yatak_sayisi" class="required inset">
+                        <option <?=@$YatakSayisi[1];?> value="1">1</option>
+                        <option <?=@$YatakSayisi[2];?> value="2">2</option>
+                        <option <?=@$YatakSayisi[3];?> value="3">3</option>
+                        <option <?=@$YatakSayisi[4];?> value="4">4</option>
+                        <option <?=@$YatakSayisi["5+"];?> value="5+">5+</option>
+                    </select>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                      $Active[@$Villa->active] = "pressed";
+                    ?>
+                    <label>Durumu</label>
+                    <div class="buttons btn-radio">
+                        <button name="active" value="1" class="<?=$Active[1];?> green"><span class="icon icon-eye-open"></span>Aktif</button>
+                        <button name="active" value="0" class="<?=$Active[0];?> red"><span class="icon icon-eye-close"></span>Deaktif</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="z-index: 11" class="box g16 sezon-fiyat">
+            <div class="header">
+                Sezon Fiyatları
+                <div class="buttons right">
+                    <button style="border-radius: 3px 3px 3px 3px !important;" class="blue sezon-ekle"><span class="icon icon-ok icon-s no-mg"></span> &nbsp; Sezon Ekle</button>
+                </div>
+            </div>
+            <div class="content rows-pad-m form big-label label-pad-m sezon-fiyat-list">
+                <?php
+                    foreach($VillaFiyat as $fiyat_index => $fiyat){
+                        $SeciliAy = array();
+                        $SeciliAy[$fiyat->ay] = 'selected="selected"';
+                ?>
+                <div class="row inp-cont">
+                    <style>
+                        .drop.select.required.inset.no-sel-opt{
+                            width: 65% !important;
+                        }
+                        .ui-spinner.spinner-body{
+                            right: 38%;
+                            width: 150% !important;
+                        }
+                        .required.spinner.number.ui-spinner-input.fiyat{
+                            width: 100% !important;
+                        }
+                    </style>
+                    <label>
+                        <select name="sezon_ay[<?=$fiyat->index;?>]" class="required inset">
+                            <option <?=@$SeciliAy[1];?> value="1">Ocak</option>
+                            <option <?=@$SeciliAy[2];?> value="2">Şubat</option>
+                            <option <?=@$SeciliAy[3];?> value="3">Mart</option>
+                            <option <?=@$SeciliAy[4];?> value="4">Nisan</option>
+                            <option <?=@$SeciliAy[5];?> value="5">Mayıs</option>
+                            <option <?=@$SeciliAy[6];?> value="6">Haziran</option>
+                            <option <?=@$SeciliAy[7];?> value="7">Temmuz</option>
+                            <option <?=@$SeciliAy[8];?> value="8">Ağustos</option>
+                            <option <?=@$SeciliAy[9];?> value="9">Eylül</option>
+                            <option <?=@$SeciliAy[10];?> value="10">Ekim</option>
+                            <option <?=@$SeciliAy[11];?> value="11">Kasım</option>
+                            <option <?=@$SeciliAy[12];?> value="12">Aralık</option>
+                        </select>
+                    </label>
+                    <input name="sezon_fiyat[<?=$fiyat->index;?>]" value="<?=$fiyat->fiyat;?>" type="text" class="required g5 spinner number fiyat" placeholder="0.00">
+                </div>
+                <?php
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="box g16">
+            <div class="header">Özellikler</div>
+            <div class="content rows-pad-m form big-label label-pad-m app-loader">
+                <div class="row inp-cont">
+                    <?php
+                        $Wifi[@$Villa->wifi] = 'checked="checked"';
+                    ?>
+                    <label>İnternet</label>
+                    <div class="ig4"><input name="wifi" value="1" type="checkbox" class="checkbox big" <?=$Wifi[1];?>></div>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                        $Havuz[@$Villa->havuz] = 'checked="checked"';
+                    ?>
+                    <label>Havuz</label>
+                    <div class="ig4"><input name="havuz" value="1" type="checkbox" class="checkbox big" <?=$Havuz[1];?>></div>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                        $Uydu[@$Villa->uydu] = 'checked="checked"';
+                    ?>
+                    <label>Uydu</label>
+                    <div class="ig4"><input name="uydu" value="1" type="checkbox" class="checkbox big" <?=$Uydu[1];?>></div>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                        $SicakSu[@$Villa->sicak_su] = 'checked="checked"';
+                    ?>
+                    <label>7/24 Sıcak Su</label>
+                    <div class="ig4"><input name="sicak_su" value="1" type="checkbox" class="checkbox big" <?=$SicakSu[1];?>></div>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                        $LcdTv[@$Villa->lcd_tv] = 'checked="checked"';
+                    ?>
+                    <label>LCD TV</label>
+                    <div class="ig4"><input name="lcd_tv" value="1" type="checkbox" class="checkbox big" <?=$LcdTv[1];?>></div>
+                </div>
+                <div class="row inp-cont">
+                    <?php
+                        $Jakuzi[@$Villa->jakuzi] = 'checked="checked"';
+                    ?>
+                    <label>Jakuzi</label>
+                    <div class="ig4"><input name="jakuzi" value="1" type="checkbox" class="checkbox big" <?=$Jakuzi[1];?>></div>
+                </div>
+            </div>
+        </div>
+        <div class="box g16 selecting-box">
+            <div class="header"><span class="accent grad2">Küçük Resim</span></div>
+            <div id="intro" class="content scroll ov-no select-thumb-list">
+                <div class="scroll-cont"></div>
+            </div>
+        </div>
+    </div>
+
+    <?php require_once "Modules/admin/layouts/footer.html"; ?>
+
+</div>
+
+<!--MODAL WINDOWS-->
+
+<div class="modal-ov">
+
+    <div id="notif-mod" class="modal mini box modslideright">
+        <div class="header">
+            <span class="icon icon-subtractshape"></span>Notifications &amp; Alerts
+            <button class="mini close"><span class="icon icon-remove no-mg"></span></button>
+        </div>
+        <div class="mod-body">
+            <p class="alert warn">Low disk space remaining on partition E:/</p>
+            <p class="alert info">MySQL updated to newest version (v5.6)</p>
+            <p class="alert danger">Server #3 reporting high temperatures</p>
+        </div>
+    </div>
+
+    <div id="ctrl-set" class="modal box modslideupalt">
+        <div class="header"><span class="icon icon-cog"></span>Settings</div>
+        <div class="mod-body no-pad">
+            <div class="row ig8 bd-right"><label>Automatic Updates</label><input type="checkbox" class="checkbox big" checked></div>
+            <div class="row ig8"><label>Automatic Backup</label><input type="checkbox" class="checkbox big" checked></div>
+            <div class="row">
+                <label>Color Scheme</label>
+                <div id="color-scheme" class="buttons btn-radio">
+                    <button class="light gray pressed ig8"><span class="icon icon-brightnessfull"></span>Light</button>
+                    <button class="black ig8"><span class="icon icon-brightness"></span>Dark</button>
+                </div>
+            </div>
+            <div id="sidebar-pos-row" class="row">
+                <label>Sidebar Position</label>
+                <div id="sidebar-pos" class="buttons btn-radio">
+                    <button class="mini left pressed ig4">Left</button>
+                    <button class="mini top ig4">Top</button>
+                    <button class="mini right ig4">Right</button>
+                    <button class="mini bottom ig4">Bottom</button>
+                </div>
+            </div>
+            <div class="row">
+                <label>Sidebar Color</label>
+                <div class="inp-cont no-pad">
+                    <input id="sidebar-color" value="#5b5a5a" data-defaultValue="#5b5a5a" placeholder="#5b5a5a">
+                </div>
+            </div>
+            <div class="row">
+                <label>Header Color</label>
+                <div class="inp-cont no-pad">
+                    <input id="header-color" placeholder="Transparent">
+                </div>
+            </div>
+        </div>
+        <div class="mod-act">
+            <button id="res-set" class="red"><span class="icon icon-refresh"></span>Reset settings</button>
+            <button class="close green"><span class="icon icon-ok"></span>Close</button>
+        </div>
+    </div>
+
+</div>
+
+</div><!--END WRAPPER-->
+
+<div id="load"><div id="spinner"></div></div>
+<?php require_once "Modules/admin/layouts/scripts.html"; ?>
+<script type="text/javascript" src="VillaGallery?id=<?=$VillaID;?>"></script>
+<!---jQuery Code-->
+<script type="text/javascript">
+    $(function(){
+        DropZone();
+    });
+    $.fn.loadfns( function() {
+        tinymce.init({
+            selector: "#wysiwyg",
+            plugins: [
+                "autolink lists link image charmap print preview anchor",
+                "searchreplace code",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image"
+        });
+        $('.spark').sparkline('html', {
+            type: 'bar', height: '40px', barSpacing: 4, barColor: '#89A824', negBarColor: '#d6692f'
+        });
+        $('#intro').nanoScroller();
+        $("#table").tablesorter();
+        $(".kaydet").click(function(){
+            VillaKaydet({"Caller":$(this)});
+        });
+
+        App(".select-thumb-list").loader(function(e){
+           SelectThumbnail(function(){
+               e.out();
+           });
+        });
+
+        CloseSelectOptions();
+
+    });
+
+</script>
+
+</body>
+</html>

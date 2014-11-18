@@ -63,15 +63,6 @@ class index extends Module{
 
     }
 
-    public function hello(){
-
-        $this->data["isim"] = "Musa";
-        $this->data["soyisim"] = "ATALAY";
-
-        return $this->render();
-
-    }
-
     public function config(){
 
         $Config = new Engines\Config;

@@ -1,18 +1,17 @@
 RewriteEngine ON
-RewriteBase /Projects/AkasyaSystem/
+RewriteBase /
 
-#RewriteRule ^(.*)(_assets|source)/(.*)$ $2/$3 [L]
-RewriteRule ^(.*).mp4$ ./Modules/admin/Files/$1.mp4 [L]
+RewriteRule ^$ System.php?app=default&module=index&command=index&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules))(.*)/(.*)/(_assets|Source|source|Media|media|Files|files)/(.*)$ ./Modules/$2/$3/$4/$5 [L]
 RewriteRule ^(?!^(Modules))(.*)/(_assets|Source|source|Media|media|Files|files)/(.*)$ ./Modules/$2/$3/$4 [L]
-#(?!(.*)\.php)
-#RewriteRule ^(?!^(_assets/|source/))(.*)/(?!(_assets/|source/))(.*)(\.(.*)|\.(.*)/)$ System.php?path=$2&module=$4&command=index [L]
-#RewriteRule ^(?!^(_assets/|source/))(.*)/(?!(_assets/|source/))(.*)((?!(\.(.*)))/)$ System.php?path=$2&module=$4&command=index [L]
-#(|(\&(.*)))
+RewriteRule ^(?!^(Modules))(.*)/(_assets|Source|source|Media|media|Files|files)/$ ./Modules/$2/$3/ [L]
 RewriteRule ^(.*)/session/(.*)$ System.php?app=admin&module=session&command=$2&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(?!(_assets/|source/))(.*)/$ System.php?app=$2&module=$4&command=index&$5&%{QUERY_STRING} [L]
+RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/$ System.php?app=$2&module=index&command=index&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(?!(_assets/|source/))(.*)/(.*)(.php|.html)$ System.php?app=$2&module=$4&command=$5&$7&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(?!(_assets/|source/))(.*)/(.*)/(?!^(\.php|\.html))(.*)$ System.php?app=$2&module=$4&command=$5&ref=$7&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(?!(_assets/|source/))(.*)/(.*)$ System.php?app=$2&module=$4&command=$5&$6&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(.*)(\.php|\.html)$ System.php?app=default&module=$2&command=$3&%{QUERY_STRING} [L]
 RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)/(.*)$ System.php?app=default&module=$2&command=$3&%{QUERY_STRING} [L]
+RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)\.(html|htm|php)$ System.php?app=default&module=index&command=index&%{QUERY_STRING} [L]
+RewriteRule ^(?!^(Modules/|_assets/|source/|Media/|media/|Files/|files/))(.*)$ System.php?app=default&module=index&command=$2&%{QUERY_STRING} [L]
