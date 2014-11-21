@@ -65,9 +65,18 @@ class MySQL {
 
     }
 
-    public function query($QueryStatement){
+    /**
+     * @param $CharSet: MySQL Connection´s OutPut Character Coding ex: utf8
+     */
+    public function character($CharSet){
 
-        return $this->Conn->query($QueryStatement);
+        $this->Conn->exec("set names {$CharSet}");
+
+    }
+
+    public function query($QueryStatement, $FETCH = \PDO::FETCH_ASSOC){
+
+        return $this->Conn->query($QueryStatement, $FETCH);
 
     }
 
@@ -105,14 +114,6 @@ class MySQL {
 
         return new Switcher($this->Conn, $Path);
 
-    }
-
-    /**
-     * @param $CharSet: MySQL Connection´s OutPut Character Coding ex: utf8
-     */
-    public function character($CharSet){
-
-        $this->Conn->exec("set names {$CharSet}");
     }
 
     /*private function ErrorHandler(\PDOException $Error){
@@ -493,11 +494,13 @@ class SqlMaker{
 
             $Path[1] = implode("/", $Path);
 
-            $Packages = explode(";;", ltrim($Path[1], ";;"));
+            #$Packages = explode(";;", ltrim($Path[1], ";;"));
+            $Packages = preg_split("/\;\;/", ltrim($Path[1], ";;"));
 
             foreach ($Packages as $Package) {
 
-                $Set = explode("::", $Package);
+                #$Set = explode("::", $Package);
+                 $Set = preg_split("/\:\:/", $Package);
 
                 $VarKey = substr(md5(date("Y-m-d-H-i-s-").microtime().":".rand(9, 99999)), 3, 9);
 
@@ -646,13 +649,13 @@ class SqlMaker{
 
     private function ArraySet($Path = null, $Set = true){
 
-        if($this->QueryType==MySQL::SELECT){   # String Type
+        if($this->QueryType==1){   # Array Type
 
 
 
         }
 
-        if($this->QueryType==MySQL::INSERT){
+        if($this->QueryType==2){ #   Insert Query
 
 
 
@@ -1072,6 +1075,32 @@ class Selected{
     public function row($Index){
 
         return $this->SelectedRow = new Row($this->Conn, $this->Source[$Index]);
+
+    }
+
+    public function merge($Data1, $Data2 = null){
+
+        if((($Data1=="this"||$Data1===true)&&is_array($Data2))){
+
+            $this->Source = array_merge($this->Source, $Data2);
+
+        }else if((($Data2===null||$Data2===false)&&is_array($Data1))){
+
+            $this->Source = array_merge($this->Source, $Data1);
+
+        }else if((($Data2==="this"||$Data2===true)&&is_array($Data1))){
+
+            $this->Source = array_merge($Data1, $this->Source);
+
+        }
+
+        return $this;
+
+    }
+
+    public function add($Data1, $Data2 = null){
+
+        return $this->merge($Data1, $Data2);
 
     }
 

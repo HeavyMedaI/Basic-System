@@ -2,6 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: musaatalay
+ * E-Mail: musa.atalay@icloud.com
  * Date: 25.10.2014
  * Time: 14:22
  */
@@ -36,10 +37,10 @@ class FireWall {
 
         if(
             //$this->Session->get("/session/login/set") == TRUE &&
-            Libraries\Session::get("/session/login/set") &&
+            Libraries\Session::get("/login/set") &&
             $this->Database->table("/users")->in([
-                "/username" => Libraries\Session::get("/session/login/username"),
-                "password" => Libraries\Session::get("/session/login/password")
+                "/username" => Libraries\Session::get("/login/username"),
+                "password" => Libraries\Session::get("/login/password")
             ])
         ){
 

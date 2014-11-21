@@ -55,4 +55,18 @@ function array_depth(Array $array) {
     return $max_depth;
 }
 
+function array_key_designer($Val, $Key=null, $Pattern=null){
+
+    \System\Libraries\Request::storage("start");
+
+    $_TARGET = array("{{::target::}}","{::target::}","{{:target:}}","{:target:}","{{target}}","{target}","::target::",":target:","target");
+
+    $Val = str_replace($_TARGET, ltrim($Val, "[/\#\$\;\:]"), $Pattern);
+
+    \System\Libraries\Request::memory("/RenderingKeywords", array($Key => $Val));
+
+    return $Val;
+
+}
+
 ?>
